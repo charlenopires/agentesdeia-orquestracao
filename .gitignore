@@ -1,0 +1,58 @@
+# ─── Claude Code ──────────────────────────────────────────────
+.claude/
+
+# ─── Guia de palestra (privado) ───────────────────────────────
+GuiaPalestra.md
+
+# ─── macOS ────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── Editores ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ─── Python ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv/
+env/
+venv/
+
+# ─── Node / npm ───────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ─── Logs e temporários ───────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.orig
+*.cache
+
+# ─── Backups da apresentação ──────────────────────────────────
+*.dark-backup.html
+*.backup.*
