@@ -3201,6 +3201,7 @@
           <div class="callout" style="font-size:1.25rem; padding:0.7rem 1rem; font-weight:600; margin:0;">
             Para single-agent, comece aqui.
             <span style="display:block; font-size:0.78rem; font-weight:400; color:#5A8098; margin-top:0.2rem; font-family:'JetBrains Mono',monospace; letter-spacing:1px;">Yao et al. 2022 · arXiv:2210.03629</span>
+            <button class="arch-use-btn" style="margin-top:0.6rem;" onclick="document.getElementById('dlg-p17-react').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
         </div>
 
@@ -3606,6 +3607,7 @@
 
           </svg>
         </div>
+        <dialog id="dlg-p17-react" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · ReAct</p><h4>Assistente de pesquisa científica</h4><p>O agente recebe uma pergunta complexa, gera um thought (hipótese), executa uma busca (action), lê os resultados (observation) e decide se precisa de mais informação. Repete o ciclo com o trace acumulado no contexto até emitir a resposta fundamentada. Ideal para tarefas abertas onde o caminho não é conhecido antecipadamente.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -3620,6 +3622,7 @@
           Diferente do ReAct (decide passo a passo), Plan-and-Execute elabora um
           <em class="serif text-coral">plano completo primeiro</em>, depois executa.
         </p>
+        <button class="arch-use-btn" style="margin-bottom:0.4rem;" onclick="document.getElementById('dlg-p18-planexec').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
 
         <div style="display:flex; justify-content:center; margin-top:0.6rem;">
           <svg viewBox="0 0 1080 240"
@@ -3791,6 +3794,7 @@
             </p>
           </div>
         </div>
+        <dialog id="dlg-p18-planexec" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · PLAN-AND-EXECUTE</p><h4>Due diligence financeira automatizada</h4><p>O Planner (modelo grande) elabora o plano completo: 1. buscar dados, 2. analisar balanço, 3. comparar com o setor, 4. redigir conclusão. O Executor (modelo menor e mais barato) executa cada etapa mecanicamente. Ideal quando a tarefa é longa e bem estruturada — custo inferior ao ReAct puro e menos risco de desvio do objetivo.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -3805,6 +3809,7 @@
           Estende ReAct com auto-reflexão verbal após falhas. O agente escreve em memória episódica
           <em class="serif text-coral">o que deu errado e por quê</em>, e revisa nas próximas tentativas.
         </p>
+        <button class="arch-use-btn" style="margin-bottom:0.4rem;" onclick="document.getElementById('dlg-p19-reflexion').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
 
         <div style="display:flex; justify-content:center; margin-top:0.6rem;">
           <svg viewBox="0 0 1080 280"
@@ -3958,6 +3963,7 @@
         <p class="footnote-light" style="font-size: 0.95rem; margin-top:0.3rem;">
           Shinn et al. (2023) · arXiv:2303.11366
         </p>
+        <dialog id="dlg-p19-reflexion" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · REFLEXION</p><h4>Agente de programação competitiva</h4><p>O agente tenta resolver o problema, executa os testes e, ao falhar, escreve em memória episódica: "abordagem greedy falhou no caso de borda X por causa de Y". Na tentativa seguinte, lê a lição e muda a estratégia para programação dinâmica. Reduz erros repetidos sem retreinar o modelo — ideal quando tentativas iterativas são baratas e o critério de sucesso é objetivo.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -3972,6 +3978,7 @@
           Em vez de seguir uma cadeia única, ToT expande <em class="serif text-coral">múltiplas possibilidades</em>,
           avalia cada uma com score, e prossegue pela mais promissora. Search clássico encontra LLMs.
         </p>
+        <button class="arch-use-btn" style="margin-bottom:0.4rem;" onclick="document.getElementById('dlg-p20-tot').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
 
         <div style="display:flex; align-items:center; justify-content:center; margin-top:0.4rem;">
           <svg viewBox="0 0 780 380"
@@ -4085,6 +4092,7 @@
         <p class="footnote-light" style="margin-top:0.4rem; font-size:0.95rem;">
           Yao et al. (2023) · arXiv:2305.10601 · Cada thought é avaliado e expandido conforme score · Caminhos não-promissores são podados
         </p>
+        <dialog id="dlg-p20-tot" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · TREE-OF-THOUGHTS</p><h4>Resolução de problemas matemáticos complexos</h4><p>Para o puzzle "Game of 24", o agente expande múltiplas equações candidatas, avalia cada uma com score de viabilidade, poda os caminhos piores e aprofunda os mais promissores. Use quando o espaço de soluções é grande, os passos intermediários são avaliáveis e exploração sistemática supera geração linear — o custo em tokens é alto, mas a qualidade da solução justifica.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
