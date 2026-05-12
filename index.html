@@ -2521,7 +2521,7 @@
               LLM</span>
             <h3 class="serif mt-3">Single call</h3>
             <hr class="micro-rule" />
-            <p class="card-desc">
+            <p class="card-desc" style="font-size:1.3rem;">
               Um prompt → uma resposta. Sem loop, sem ferramentas,
               sem decisão sobre próximo passo.
             </p>
@@ -2535,7 +2535,7 @@
             <span class="tag">WORKFLOW</span>
             <h3 class="serif mt-3">Pipeline fixo</h3>
             <hr class="micro-rule" />
-            <p class="card-desc">
+            <p class="card-desc" style="font-size:1.3rem;">
               Múltiplas chamadas LLM, mas com fluxo
               <em>predefinido em código</em>.
               Determinístico, auditável.
@@ -2550,7 +2550,7 @@
             <span class="tag tag-coral">AGENTE</span>
             <h3 class="serif mt-3">Loop dinâmico</h3>
             <hr class="micro-rule" />
-            <p class="card-desc">
+            <p class="card-desc" style="font-size:1.3rem;">
               O LLM decide quais ferramentas chamar, quando parar,
               como adaptar. Probabilístico, flexível.
             </p>
@@ -2561,9 +2561,19 @@
           </div>
         </div>
 
-        <p class="footnote-light mt-5">
-          "Prefira workflows quando puder, agentes apenas quando precisar." — Anthropic
-        </p>
+        <figure style="margin:1.2rem 0 0; padding:0.8rem 1.6rem;
+                       border-left:3px solid var(--coral);
+                       background:rgba(214,40,40,0.06);
+                       border-radius:0 8px 8px 0; text-align:left;">
+          <blockquote style="margin:0; font-family:var(--font-display); font-style:italic;
+                             font-size:1.35rem; color:var(--fg); line-height:1.5;">
+            "Prefira workflows quando puder, agentes apenas quando precisar."
+          </blockquote>
+          <figcaption style="margin-top:0.4rem; font-family:var(--font-mono);
+                             font-size:0.82rem; color:var(--coral); letter-spacing:0.06em;">
+            — Anthropic
+          </figcaption>
+        </figure>
       </section>
 
 
