@@ -360,6 +360,42 @@
       background: var(--ok);
     }
 
+    /* ── Card tints — paleta diversificada para diferenciar cards na mesma grade ── */
+    .card-tint-red,
+    .card-tint-coral,
+    .card-tint-amber,
+    .card-tint-ok,
+    .card-tint-blue,
+    .card-tint-deep {
+      position: relative;
+    }
+    .card-tint-red    { background: #F0E1D6 !important; }
+    .card-tint-red::before    { background: #D62828 !important; width: 4px !important; }
+    .card-tint-coral  { background: #F5EBD2 !important; }
+    .card-tint-coral::before  { background: #F77F00 !important; width: 4px !important; }
+    .card-tint-amber  { background: #F4E4BE !important; }
+    .card-tint-amber::before  { background: #C06000 !important; width: 4px !important; }
+    .card-tint-ok     { background: #DFE8CF !important; }
+    .card-tint-ok::before     { background: #1A8035 !important; width: 4px !important; }
+    .card-tint-blue   { background: #DCE3EA !important; }
+    .card-tint-blue::before   { background: #003049 !important; width: 4px !important; }
+    .card-tint-deep   { background: #EED9D2 !important; }
+    .card-tint-deep::before   { background: #A01818 !important; width: 4px !important; }
+
+    /* Garantir que tints tenham accent bar (mesmo sem card-accent) */
+    .card-tint-red:not(.card-accent)::before,
+    .card-tint-coral:not(.card-accent)::before,
+    .card-tint-amber:not(.card-accent)::before,
+    .card-tint-ok:not(.card-accent)::before,
+    .card-tint-blue:not(.card-accent)::before,
+    .card-tint-deep:not(.card-accent)::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
     .card-elev {
       background: var(--bg-elev);
       border: 1px solid var(--border);
@@ -1696,7 +1732,7 @@
       <section style="padding-top: 0.8rem !important;">
         <h2 style="margin-bottom:0; font-size:2.8rem; line-height:1.05;">Como funciona a IA Tradicional</h2>
         <hr class="rule" style="margin: 0.1rem 0;" />
-        <p class="lead" style="max-width: min(1100px, 100%); margin-top: 0.1rem; font-size:1.15rem; line-height:1.35;">
+        <p class="lead" style="max-width: min(1100px, 100%); margin-top: 0.9rem; font-size:1.4rem; line-height:1.35;">
           A IA tradicional executa uma <span class="text-coral">chamada única</span> ao modelo
           de linguagem — <em class="serif">single-call, reativa, sem estado.</em>
         </p>
@@ -1784,7 +1820,7 @@
       <section style="padding-top: 0.8rem !important;">
         <h2 style="margin-bottom:0; font-size:2.8rem; line-height:1.05;">Como funciona o Agente de IA</h2>
         <hr class="rule" style="margin: 0.1rem 0;" />
-        <p class="lead" style="max-width: min(1100px, 100%); margin-top: 0.1rem; font-size:1.15rem; line-height:1.35;">
+        <p class="lead" style="max-width: min(1100px, 100%); margin-top: 0.9rem; font-size:1.15rem; line-height:1.35;">
           O agente opera em um <span class="text-purple">loop autônomo</span> com
           <em class="serif">ferramentas, memória persistente</em> e decide o próximo passo a cada iteração.
         </p>
@@ -2117,7 +2153,7 @@
         </p>
 
         <div class="grid grid-3 mt-5">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="card-num">01</span>
             <h3 class="serif">Autonomia</h3>
             <hr class="micro-rule" />
@@ -2126,7 +2162,7 @@
               para alcançar objetivos.
             </p>
           </div>
-          <div class="card card-accent" style="border-color: var(--coral);">
+          <div class="card card-accent card-tint-amber">
             <span class="card-num">02</span>
             <h3 class="serif">Agent Loop</h3>
             <hr class="micro-rule" />
@@ -2135,7 +2171,7 @@
               A característica <em>definidora</em>.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-red">
             <span class="card-num">03</span>
             <h3 class="serif">Decisão Dinâmica</h3>
             <hr class="micro-rule" />
@@ -2470,7 +2506,7 @@
         <hr class="rule mt-3" />
 
         <div class="grid grid-3 mt-5" style="gap: 1.5rem;">
-          <div class="card card-elev card-accent" style="border-left-color: var(--fg-dim);">
+          <div class="card card-elev card-accent card-tint-blue" style="border-left-color: var(--fg-dim);">
             <span class="tag"
               style="background: rgba(0,48,73,0.08); color: var(--fg-dim); border-color: var(--fg-dim);">CHAMADA
               LLM</span>
@@ -2486,7 +2522,7 @@
             </div>
           </div>
 
-          <div class="card card-elev card-accent card-accent-purple">
+          <div class="card card-elev card-accent card-tint-red">
             <span class="tag">WORKFLOW</span>
             <h3 class="serif mt-3">Pipeline fixo</h3>
             <hr class="micro-rule" />
@@ -2501,7 +2537,7 @@
             </div>
           </div>
 
-          <div class="card card-elev card-accent">
+          <div class="card card-elev card-accent card-tint-ok">
             <span class="tag tag-coral">AGENTE</span>
             <h3 class="serif mt-3">Loop dinâmico</h3>
             <hr class="micro-rule" />
@@ -3109,205 +3145,425 @@
       <!-- ═══════════════════════════════════════════════════════════
      PÁGINA 17 · ReAct · o padrão default
      ═══════════════════════════════════════════════════════════ -->
-      <section>
-        <h2>ReAct · o padrão default</h2>
-        <hr class="rule mt-3" />
+      <section style="padding-top: 0.6rem !important;">
+        <h2 style="margin-bottom:0.15rem;">ReAct · o padrão default</h2>
+        <hr class="rule" style="margin: 0.25rem 0 0.45rem;" />
 
-        <div class="two-col mt-3" style="grid-template-columns: 0.85fr 1.15fr; gap: 2rem; align-items:center;">
-          <div>
-            <p class="lead" style="font-size:1.6rem; line-height:1.5;">
-              Alterna explicitamente <em class="serif text-coral">Thought</em> →
-              <em class="serif text-coral">Action</em> →
-              <em class="serif text-coral">Observation</em>, com decisão a cada passo.
-            </p>
-            <p class="mt-3" style="font-size:1.15rem;">
-              Tornar o raciocínio <strong>verbal e explícito</strong> reduz alucinações
-              vs. Chain-of-Thought puro. Funciona bem em 10–15 passos.
-            </p>
-            <div class="callout mt-3" style="font-size:1.9rem; padding:1.15rem 1.5rem; font-weight:600;">
-              Para single-agent, comece aqui.
-            </div>
-            <p class="footnote-light mt-3" style="text-align: left; font-size:0.95rem;">
-              Yao et al. (2022) · arXiv:2210.03629
-            </p>
+        <!-- [p17] Banda compacta de texto (top) — explicação concentrada para liberar verticalidade ao diagrama -->
+        <div style="display:grid; grid-template-columns: 1.45fr 1fr; gap: 1.4rem; align-items:center; max-width:1180px; margin:0 auto;">
+          <p class="lead" style="font-size:1.18rem; line-height:1.45; margin:0;">
+            Em vez de raciocinar tudo de uma vez, o agente <em class="serif text-coral">intercala</em>
+            <strong>Thought</strong> → <strong>Action</strong> → <strong>Observation</strong> e
+            <em class="serif text-coral">decide</em> o próximo passo a cada iteração. O <strong>trace</strong>
+            cresce no contexto até o LLM emitir a resposta final.
+          </p>
+          <div class="callout" style="font-size:1.25rem; padding:0.7rem 1rem; font-weight:600; margin:0;">
+            Para single-agent, comece aqui.
+            <span style="display:block; font-size:0.78rem; font-weight:400; color:#5A8098; margin-top:0.2rem; font-family:'JetBrains Mono',monospace; letter-spacing:1px;">Yao et al. 2022 · arXiv:2210.03629</span>
           </div>
+        </div>
 
-          <div style="display:flex; align-items:center; justify-content:center;">
-            <svg viewBox="0 0 600 380"
-              style="width:100%; max-width:min(580px, 95%); max-height:62vh; height:auto;"
-              aria-label="Diagrama animado ReAct">
-              <defs>
-                <!-- [p17] Paths conectando bordas das caixas -->
-                <!-- [p17] QUERY → DECIDIR -->
-                <path id="rPathQD" d="M 100 190 L 140 190" />
-                <!-- [p17] DECIDIR → Thought -->
-                <path id="rPathDT" d="M 190 140 Q 200 110, 290 90" />
-                <!-- [p17] Thought → DECIDIR -->
-                <path id="rPathTD" d="M 230 90 Q 200 130, 175 150" />
-                <!-- [p17] DECIDIR → Action -->
-                <path id="rPathDA" d="M 190 240 Q 200 270, 290 270" />
-                <!-- [p17] Action → Observation -->
-                <path id="rPathAO" d="M 410 290 Q 470 290, 470 310" />
-                <!-- [p17] Observation → DECIDIR -->
-                <path id="rPathOD" d="M 410 335 Q 250 335, 175 230" />
-                <!-- [p17] DECIDIR → Resposta -->
-                <path id="rPathDR" d="M 240 190 L 460 190" />
-              </defs>
+        <!-- [p17] Diagrama ReAct (arquitetura) — full-width, large -->
+        <div style="display:flex; justify-content:center; margin-top:0.5rem;">
+          <svg viewBox="0 0 1200 540"
+            style="width:100%; max-width:min(1200px, 96vw); max-height:64vh; height:auto;"
+            aria-label="Arquitetura ReAct: agente LLM, ambiente, trace/scratchpad e ciclo Thought-Action-Observation">
 
-              <!-- [p17] QUERY -->
-              <g>
-                <rect x="20" y="167" width="80" height="46" rx="8"
-                  fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="2" />
-                <text x="60" y="195" text-anchor="middle" fill="#5A3000"
-                  font-family="JetBrains Mono,monospace" font-size="14" font-weight="700"
-                  letter-spacing="2">QUERY</text>
+            <defs>
+              <!-- [p17] Markers de seta -->
+              <marker id="arrOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#C06000" />
+              </marker>
+              <marker id="arrBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#003049" />
+              </marker>
+              <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#A01818" />
+              </marker>
+              <marker id="arrGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#1A8035" />
+              </marker>
+              <marker id="arrAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A5000" />
+              </marker>
+
+              <!-- [p17] Gradient sutil para container do agente -->
+              <linearGradient id="agentGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(0,48,73,0.06)" />
+                <stop offset="100%" stop-color="rgba(0,48,73,0.02)" />
+              </linearGradient>
+
+              <linearGradient id="envGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(252,191,73,0.22)" />
+                <stop offset="100%" stop-color="rgba(252,191,73,0.10)" />
+              </linearGradient>
+
+              <linearGradient id="traceGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(0,48,73,0.05)" />
+                <stop offset="100%" stop-color="rgba(214,40,40,0.05)" />
+              </linearGradient>
+
+              <!-- [p17] Paths usados nas animações (definidos uma vez) -->
+              <!-- QUERY → AGENT (entra pela borda esquerda) -->
+              <path id="p17_Q_to_A" d="M 120 250 L 175 250" />
+              <!-- Internal: Thought → Action -->
+              <path id="p17_T_to_Act" d="M 380 235 L 470 235" />
+              <!-- Action → ENV (sai do agente, à direita) -->
+              <path id="p17_Act_to_Env" d="M 620 235 Q 720 235, 780 300" />
+              <!-- ENV → Observation (volta para o agente, à direita inferior) -->
+              <path id="p17_Env_to_Obs" d="M 780 380 Q 720 410, 620 410" />
+              <!-- Observation → DECIDIR -->
+              <path id="p17_Obs_to_D" d="M 470 410 L 380 410" />
+              <!-- DECIDIR → Thought (continuar) -->
+              <path id="p17_D_to_T" d="M 305 380 Q 280 320, 290 270" />
+              <!-- DECIDIR → ANSWER (parar) -->
+              <path id="p17_D_to_Ans" d="M 380 425 Q 700 470, 1015 460" />
+              <!-- Append to TRACE (de cada step para o trace topo) — cosmetic -->
+              <path id="p17_T_to_trace" d="M 320 200 Q 320 130, 340 100" />
+              <path id="p17_Act_to_trace" d="M 545 200 Q 545 130, 565 100" />
+              <path id="p17_Obs_to_trace" d="M 545 375 Q 545 130, 800 100" />
+              <!-- Trace → Agent (contexto realimenta) -->
+              <path id="p17_trace_to_A" d="M 970 80 Q 1080 80, 1080 230 Q 1080 280, 700 280" />
+            </defs>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 1) TRACE / SCRATCHPAD (banda superior) -->
+            <!-- ════════════════════════════════════════════ -->
+            <g>
+              <rect x="170" y="20" width="820" height="80" rx="12"
+                fill="url(#traceGrad)" stroke="#003049" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.9" />
+              <text x="186" y="42" fill="#003049"
+                font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="2.5" font-weight="700">
+                TRACE · CONTEXTO ACUMULADO (scratchpad)
+              </text>
+
+              <!-- Turn 1 -->
+              <g transform="translate(190, 55)">
+                <rect x="0" y="0" width="62" height="32" rx="5" fill="rgba(0,48,73,0.12)" stroke="#003049" stroke-width="1.2" />
+                <text x="31" y="14" text-anchor="middle" fill="#003049" font-family="Instrument Serif" font-style="italic" font-size="13">Thought</text>
+                <text x="31" y="26" text-anchor="middle" fill="#1A4A64" font-family="JetBrains Mono,monospace" font-size="9">t=1</text>
+
+                <rect x="68" y="0" width="62" height="32" rx="5" fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="1.2" />
+                <text x="99" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Action</text>
+                <text x="99" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=1</text>
+
+                <rect x="136" y="0" width="78" height="32" rx="5" fill="rgba(252,191,73,0.28)" stroke="#8A5000" stroke-width="1.2" />
+                <text x="175" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Observation</text>
+                <text x="175" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=1</text>
               </g>
 
-              <!-- [p17] DECIDIR (diamond) -->
+              <!-- separador -->
+              <line x1="416" y1="58" x2="416" y2="86" stroke="#C8C0A0" stroke-width="1.2" stroke-dasharray="2 2" />
+
+              <!-- Turn 2 -->
+              <g transform="translate(426, 55)">
+                <rect x="0" y="0" width="62" height="32" rx="5" fill="rgba(0,48,73,0.12)" stroke="#003049" stroke-width="1.2" />
+                <text x="31" y="14" text-anchor="middle" fill="#003049" font-family="Instrument Serif" font-style="italic" font-size="13">Thought</text>
+                <text x="31" y="26" text-anchor="middle" fill="#1A4A64" font-family="JetBrains Mono,monospace" font-size="9">t=2</text>
+
+                <rect x="68" y="0" width="62" height="32" rx="5" fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="1.2" />
+                <text x="99" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Action</text>
+                <text x="99" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=2</text>
+
+                <rect x="136" y="0" width="78" height="32" rx="5" fill="rgba(252,191,73,0.28)" stroke="#8A5000" stroke-width="1.2" />
+                <text x="175" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Observation</text>
+                <text x="175" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=2</text>
+              </g>
+
+              <!-- separador -->
+              <line x1="652" y1="58" x2="652" y2="86" stroke="#C8C0A0" stroke-width="1.2" stroke-dasharray="2 2" />
+
+              <!-- ellipsis -->
+              <text x="685" y="78" fill="#5A8098" font-family="JetBrains Mono,monospace" font-size="20" font-weight="700">···</text>
+
+              <!-- Turn n -->
+              <g transform="translate(740, 55)">
+                <rect x="0" y="0" width="62" height="32" rx="5" fill="rgba(0,48,73,0.12)" stroke="#003049" stroke-width="1.2" />
+                <text x="31" y="14" text-anchor="middle" fill="#003049" font-family="Instrument Serif" font-style="italic" font-size="13">Thought</text>
+                <text x="31" y="26" text-anchor="middle" fill="#1A4A64" font-family="JetBrains Mono,monospace" font-size="9">t=n</text>
+
+                <rect x="68" y="0" width="62" height="32" rx="5" fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="1.2" />
+                <text x="99" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Action</text>
+                <text x="99" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=n</text>
+
+                <rect x="136" y="0" width="78" height="32" rx="5" fill="rgba(252,191,73,0.28)" stroke="#8A5000" stroke-width="1.2" />
+                <text x="175" y="14" text-anchor="middle" fill="#5A3000" font-family="Instrument Serif" font-style="italic" font-size="13">Observation</text>
+                <text x="175" y="26" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="9">t=n</text>
+              </g>
+            </g>
+
+            <!-- [p17] Label: trace cresce ao longo do tempo -->
+            <text x="580" y="118" text-anchor="middle" fill="#5A8098"
+              font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.5" font-style="italic">
+              cada turno apende (Thought, Action, Observation) ao contexto do LLM
+            </text>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 2) QUERY (entrada à esquerda)         -->
+            <!-- ════════════════════════════════════════════ -->
+            <g>
+              <rect x="20" y="222" width="100" height="58" rx="9"
+                fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="2.2" />
+              <text x="70" y="248" text-anchor="middle" fill="#5A3000"
+                font-family="IBM Plex Sans,sans-serif" font-size="13" font-weight="700" letter-spacing="2">QUERY</text>
+              <text x="70" y="266" text-anchor="middle" fill="#8A5000"
+                font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">pergunta inicial</text>
+            </g>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 3) AGENT (LLM) — container central     -->
+            <!-- ════════════════════════════════════════════ -->
+            <g>
+              <!-- Container -->
+              <rect x="175" y="155" width="490" height="320" rx="16"
+                fill="url(#agentGrad)" stroke="#003049" stroke-width="2.6" />
+              <!-- Header -->
+              <rect x="175" y="155" width="490" height="34" rx="16"
+                fill="#003049" />
+              <rect x="175" y="180" width="490" height="14"
+                fill="#003049" />
+              <text x="196" y="178" fill="#FCBF49"
+                font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="3" font-weight="700">
+                AGENT · LLM
+              </text>
+              <text x="654" y="178" text-anchor="end" fill="#FDFAF0"
+                font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.5" font-style="italic" opacity="0.85">
+                policy: π(a | context)
+              </text>
+
+              <!-- [p17] DECIDIR (diamond, à esquerda do interior) -->
               <g>
-                <polygon points="140,190 190,140 240,190 190,240"
+                <polygon points="230,410 305,360 380,410 305,460"
                   fill="#FDFAF0" stroke="#D62828" stroke-width="2.5" />
-                <text x="190" y="186" text-anchor="middle" fill="#A01818"
-                  font-family="IBM Plex Sans,sans-serif" font-size="14" font-weight="700"
-                  letter-spacing="1.5">DECIDIR</text>
-                <text x="190" y="204" text-anchor="middle" fill="#1A4A64"
-                  font-family="JetBrains Mono,monospace" font-size="10">próximo passo</text>
+                <text x="305" y="406" text-anchor="middle" fill="#A01818"
+                  font-family="IBM Plex Sans,sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">DECIDIR</text>
+                <text x="305" y="422" text-anchor="middle" fill="#1A4A64"
+                  font-family="JetBrains Mono,monospace" font-size="9.5">continuar?</text>
               </g>
 
-              <!-- [p17] Thought -->
+              <!-- [p17] Thought box -->
               <g>
-                <rect x="290" y="40" width="160" height="60" rx="8"
-                  fill="rgba(0,48,73,0.10)" stroke="#003049" stroke-width="2" />
-                <text x="370" y="68" text-anchor="middle" fill="#003049"
+                <rect x="230" y="208" width="150" height="60" rx="9"
+                  fill="rgba(0,48,73,0.12)" stroke="#003049" stroke-width="2.2" />
+                <text x="305" y="234" text-anchor="middle" fill="#003049"
                   font-family="Instrument Serif" font-style="italic" font-size="20">Thought</text>
-                <text x="370" y="86" text-anchor="middle" fill="#1A4A64"
-                  font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">RACIOCÍNIO INTERNO</text>
+                <text x="305" y="254" text-anchor="middle" fill="#1A4A64"
+                  font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.5">raciocinar</text>
               </g>
 
-              <!-- [p17] Action -->
+              <!-- [p17] Action box -->
               <g>
-                <rect x="290" y="260" width="120" height="60" rx="8"
-                  fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="2" />
-                <text x="350" y="288" text-anchor="middle" fill="#5A3000"
+                <rect x="470" y="208" width="150" height="60" rx="9"
+                  fill="rgba(247,127,0,0.18)" stroke="#C06000" stroke-width="2.2" />
+                <text x="545" y="234" text-anchor="middle" fill="#5A3000"
                   font-family="Instrument Serif" font-style="italic" font-size="20">Action</text>
-                <text x="350" y="306" text-anchor="middle" fill="#8A5000"
-                  font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">TOOL CALL</text>
+                <text x="545" y="254" text-anchor="middle" fill="#8A5000"
+                  font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.5">tool call</text>
               </g>
 
-              <!-- [p17] Observation -->
+              <!-- [p17] Observation box -->
               <g>
-                <rect x="430" y="270" width="130" height="62" rx="8"
-                  fill="rgba(0,48,73,0.10)" stroke="#1A4A64" stroke-width="2" />
-                <text x="495" y="296" text-anchor="middle" fill="#003049"
-                  font-family="Instrument Serif" font-style="italic" font-size="18">Observation</text>
-                <text x="495" y="316" text-anchor="middle" fill="#1A4A64"
-                  font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">RESULTADO</text>
+                <rect x="470" y="380" width="150" height="60" rx="9"
+                  fill="rgba(252,191,73,0.32)" stroke="#8A5000" stroke-width="2.2" />
+                <text x="545" y="406" text-anchor="middle" fill="#5A3000"
+                  font-family="Instrument Serif" font-style="italic" font-size="20">Observation</text>
+                <text x="545" y="426" text-anchor="middle" fill="#8A5000"
+                  font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1.5">percepção</text>
               </g>
 
-              <!-- [p17] Resposta -->
-              <g>
-                <rect x="460" y="160" width="120" height="60" rx="8"
-                  fill="rgba(26,128,53,0.18)" stroke="#1A8035" stroke-width="2.5" />
-                <text x="520" y="188" text-anchor="middle" fill="#0D5A1F"
-                  font-family="IBM Plex Sans,sans-serif" font-size="15" font-weight="700"
-                  letter-spacing="2">RESPOSTA</text>
-                <text x="520" y="206" text-anchor="middle" fill="#0D5A1F"
-                  font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">final</text>
+              <!-- [p17] Arrows internos (estáticos, com setas) -->
+              <!-- Thought → Action -->
+              <line x1="382" y1="238" x2="464" y2="238" stroke="#003049" stroke-width="1.8" marker-end="url(#arrBlue)" />
+              <text x="423" y="228" text-anchor="middle" fill="#003049"
+                font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1" font-weight="700">decide-agir</text>
+
+              <!-- Observation → DECIDIR (esquerda) -->
+              <line x1="468" y1="410" x2="383" y2="410" stroke="#8A5000" stroke-width="1.8" marker-end="url(#arrAmber)" />
+              <text x="425" y="402" text-anchor="middle" fill="#8A5000"
+                font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1" font-weight="700">absorve</text>
+
+              <!-- DECIDIR → Thought (continuar — sobe pela esquerda) -->
+              <path d="M 270 380 Q 230 320, 248 270" fill="none" stroke="#D62828" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrRed)" />
+              <text x="195" y="320" text-anchor="middle" fill="#A01818"
+                font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1" font-weight="700">continuar</text>
+
+            </g>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 4) ENVIRONMENT / TOOLS (direita)       -->
+            <!-- ════════════════════════════════════════════ -->
+            <g>
+              <rect x="775" y="220" width="220" height="240" rx="14"
+                fill="url(#envGrad)" stroke="#8A5000" stroke-width="2.4" />
+              <text x="885" y="248" text-anchor="middle" fill="#5A3000"
+                font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="2.5" font-weight="700">
+                ENVIRONMENT
+              </text>
+              <text x="885" y="264" text-anchor="middle" fill="#8A5000"
+                font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.5" font-style="italic">
+                tools · mundo externo
+              </text>
+
+              <!-- Lista de tools -->
+              <g font-family="IBM Plex Sans,sans-serif" font-size="12.5" fill="#5A3000">
+                <g transform="translate(795, 286)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">Search / Retrieval</text>
+                </g>
+                <g transform="translate(795, 310)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">Calculator</text>
+                </g>
+                <g transform="translate(795, 334)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">Database · API</text>
+                </g>
+                <g transform="translate(795, 358)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">Code Execution</text>
+                </g>
+                <g transform="translate(795, 382)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">File System</text>
+                </g>
+                <g transform="translate(795, 406)">
+                  <circle cx="6" cy="-3" r="3" fill="#C06000" />
+                  <text x="18" y="0">Human-in-the-loop</text>
+                </g>
               </g>
 
-              <!-- [p17] Setas (paths renderizadas) -->
-              <g stroke-dasharray="4 3" fill="none">
-                <use href="#rPathQD" stroke="#C06000" stroke-width="1.8" opacity="0.7" />
-                <use href="#rPathDT" stroke="#003049" stroke-width="1.6" opacity="0.65" />
-                <use href="#rPathTD" stroke="#003049" stroke-width="1.4" opacity="0.45" />
-                <use href="#rPathDA" stroke="#C06000" stroke-width="1.6" opacity="0.65" />
-                <use href="#rPathAO" stroke="#C06000" stroke-width="1.6" opacity="0.65" />
-                <use href="#rPathOD" stroke="#1A4A64" stroke-width="1.4" opacity="0.50" />
-                <use href="#rPathDR" stroke="#1A8035" stroke-width="2.2" opacity="0.65" />
-              </g>
+              <text x="885" y="442" text-anchor="middle" fill="#8A5000"
+                font-family="JetBrains Mono,monospace" font-size="8.5" letter-spacing="1" font-style="italic" opacity="0.8">
+                executa action_t → devolve obs_t
+              </text>
+            </g>
 
-              <!-- [p17] Pontas de seta nos destinos -->
-              <polygon points="132,186 142,190 132,194" fill="#C06000" opacity="0.85" />
-              <polygon points="286,86 296,90 286,94" fill="#003049" opacity="0.75" />
-              <polygon points="170,144 178,152 173,156" fill="#003049" opacity="0.6" />
-              <polygon points="288,266 298,270 288,274" fill="#C06000" opacity="0.75" />
-              <polygon points="466,308 472,316 478,308" fill="#C06000" opacity="0.75" />
-              <polygon points="180,224 175,232 168,222" fill="#1A4A64" opacity="0.7" />
-              <polygon points="452,186 462,190 452,194" fill="#1A8035" opacity="0.95" />
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 5) ANSWER (saída final)                -->
+            <!-- ════════════════════════════════════════════ -->
+            <g>
+              <rect x="1030" y="430" width="150" height="62" rx="10"
+                fill="rgba(26,128,53,0.18)" stroke="#1A8035" stroke-width="2.6" />
+              <text x="1105" y="457" text-anchor="middle" fill="#0D5A1F"
+                font-family="IBM Plex Sans,sans-serif" font-size="14" font-weight="700" letter-spacing="2">RESPOSTA</text>
+              <text x="1105" y="475" text-anchor="middle" fill="#0D5A1F"
+                font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">final · stop</text>
+            </g>
 
-              <!-- [p17] Labels nas arestas -->
-              <text x="248" y="115" text-anchor="middle" fill="#003049"
-                font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" font-weight="700">raciocinar</text>
-              <text x="248" y="262" text-anchor="middle" fill="#5A3000"
-                font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" font-weight="700">agir</text>
-              <text x="350" y="180" text-anchor="middle" fill="#0D5A1F"
-                font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" font-weight="700">responder</text>
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 6) ARROWS externos (entre containers) -->
+            <!-- ════════════════════════════════════════════ -->
 
-              <!-- [p17] Partículas: ciclo completo 12s -->
-              <!-- [p17] P1: QUERY → DECIDIR (0-1s) -->
-              <circle r="6" fill="#D62828">
-                <animateMotion dur="12s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.08;0.5;1"
-                  keyPoints="0;1;1;1">
-                  <mpath href="#rPathQD" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- QUERY → AGENT -->
+            <line x1="122" y1="251" x2="170" y2="251" stroke="#C06000" stroke-width="2.2" marker-end="url(#arrOrange)" />
+            <text x="146" y="244" text-anchor="middle" fill="#5A3000"
+              font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1" font-weight="700">prompt</text>
 
-              <!-- [p17] P2: DECIDIR → Thought (1-2s) -->
-              <circle r="5" fill="#003049">
-                <animateMotion dur="12s" begin="1.2s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathDT" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="1.2s" repeatCount="indefinite"
-                  values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- Action → ENV (sai do agent à direita, curva para ENV) -->
+            <path d="M 622 238 Q 720 238, 775 290" fill="none" stroke="#C06000" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrOrange)" />
+            <text x="715" y="232" text-anchor="middle" fill="#5A3000"
+              font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.2" font-weight="700">a_t · tool call</text>
 
-              <!-- [p17] P3: Thought → DECIDIR (2.5-3.5s) -->
-              <circle r="5" fill="#003049">
-                <animateMotion dur="12s" begin="2.6s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathTD" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="2.6s" repeatCount="indefinite"
-                  values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- ENV → Observation (volta do ENV para observação) -->
+            <path d="M 775 400 Q 705 430, 622 410" fill="none" stroke="#8A5000" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrAmber)" />
+            <text x="715" y="446" text-anchor="middle" fill="#8A5000"
+              font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.2" font-weight="700">o_t · resultado</text>
 
-              <!-- [p17] P4: DECIDIR → Action (4-5s) -->
-              <circle r="5" fill="#C06000">
-                <animateMotion dur="12s" begin="4s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathDA" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="4s" repeatCount="indefinite"
-                  values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- DECIDIR → ANSWER (final/stop) -->
+            <path d="M 380 432 Q 700 510, 1028 462" fill="none" stroke="#1A8035" stroke-width="2.4" stroke-dasharray="5 3" marker-end="url(#arrGreen)" />
+            <text x="700" y="503" text-anchor="middle" fill="#0D5A1F"
+              font-family="JetBrains Mono,monospace" font-size="10.5" letter-spacing="1.5" font-weight="700">parar · emitir resposta</text>
 
-              <!-- [p17] P5: Action → Observation (5.5-6.5s) -->
-              <circle r="5" fill="#C06000">
-                <animateMotion dur="12s" begin="5.4s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathAO" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="5.4s" repeatCount="indefinite"
-                  values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- Trace feedback: agent ↔ trace (contexto realimentado) -->
+            <!-- linha indicando "context" da trace para o agente (sobe do agent) -->
+            <path d="M 420 155 Q 420 130, 500 100" fill="none" stroke="#003049" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.55" />
+            <polygon points="497,96 506,99 499,105" fill="#003049" opacity="0.55" />
+            <text x="438" y="148" fill="#003049"
+              font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1" font-style="italic" opacity="0.75">apende ao trace</text>
 
-              <!-- [p17] P6: Observation → DECIDIR (7-8.5s) -->
-              <circle r="5" fill="#1A4A64">
-                <animateMotion dur="12s" begin="6.6s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathOD" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="6.6s" repeatCount="indefinite"
-                  values="1;1;0;0;0;0;0;0;0;0;0;0" />
-              </circle>
+            <!-- Trace → agent (reinjeta contexto na próxima iteração) -->
+            <path d="M 990 60 Q 1095 60, 1095 250 Q 1095 295, 668 295" fill="none" stroke="#003049" stroke-width="1.6" stroke-dasharray="4 3" opacity="0.55" />
+            <polygon points="671,291 663,295 671,299" fill="#003049" opacity="0.7" />
+            <text x="1070" y="160" text-anchor="end" fill="#003049"
+              font-family="JetBrains Mono,monospace" font-size="9.5" letter-spacing="1" font-style="italic" opacity="0.75">contexto realimenta</text>
 
-              <!-- [p17] P7: DECIDIR → Resposta (9.5-11s) — exit final -->
-              <circle r="7" fill="#1A8035">
-                <animateMotion dur="12s" begin="9.5s" repeatCount="indefinite" calcMode="linear">
-                  <mpath href="#rPathDR" />
-                </animateMotion>
-                <animate attributeName="opacity" dur="12s" begin="9.5s" repeatCount="indefinite"
-                  values="1;1;1;0;0;0;0;0;0;0;0;0" />
-              </circle>
-            </svg>
-          </div>
+            <!-- ════════════════════════════════════════════ -->
+            <!-- [p17] 7) Partículas animadas (ciclo 14s)    -->
+            <!-- ════════════════════════════════════════════ -->
+
+            <!-- P1: QUERY → AGENT (0–1s) -->
+            <circle r="6" fill="#D62828">
+              <animateMotion dur="14s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_Q_to_A" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P2: Thought → Action (1.5–3s) -->
+            <circle r="5.5" fill="#003049">
+              <animateMotion dur="14s" begin="1.6s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_T_to_Act" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="1.6s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P3: Action → ENV (3–4.5s) -->
+            <circle r="5.5" fill="#C06000">
+              <animateMotion dur="14s" begin="3s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_Act_to_Env" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="3s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P4: ENV → Observation (4.5–6s) -->
+            <circle r="5.5" fill="#8A5000">
+              <animateMotion dur="14s" begin="4.6s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_Env_to_Obs" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="4.6s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P5: Observation → DECIDIR (6.2–7.5s) -->
+            <circle r="5" fill="#8A5000">
+              <animateMotion dur="14s" begin="6.4s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_Obs_to_D" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="6.4s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P6: DECIDIR → Thought (continuar — 7.7–8.8s) -->
+            <circle r="5" fill="#D62828">
+              <animateMotion dur="14s" begin="7.8s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_D_to_T" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="7.8s" repeatCount="indefinite"
+                values="1;1;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P7: append-to-trace (9–10s) — partícula leve subindo para o trace -->
+            <circle r="4" fill="#003049" opacity="0.6">
+              <animateMotion dur="14s" begin="9s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_T_to_trace" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="9s" repeatCount="indefinite"
+                values="0.7;0.7;0;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+            <!-- P8: DECIDIR → ANSWER (parar — 11–13s) -->
+            <circle r="7" fill="#1A8035">
+              <animateMotion dur="14s" begin="11s" repeatCount="indefinite" calcMode="linear">
+                <mpath href="#p17_D_to_Ans" />
+              </animateMotion>
+              <animate attributeName="opacity" dur="14s" begin="11s" repeatCount="indefinite"
+                values="1;1;1;0;0;0;0;0;0;0;0;0;0;0" />
+            </circle>
+
+          </svg>
         </div>
       </section>
 
@@ -4006,7 +4262,7 @@
 
         <div class="grid grid-3 mt-3" style="gap: 1.2rem;">
           <!-- [p25] CHAIN -->
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-red">
             <h3 class="serif">Chain</h3>
             <p class="mono text-coral" style="font-size: 0.7rem; letter-spacing: 0.15em;">CADEIA LINEAR</p>
             <hr class="micro-rule" />
@@ -4041,7 +4297,7 @@
           </div>
 
           <!-- [p25] TREE -->
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <h3 class="serif">Tree</h3>
             <p class="mono text-coral" style="font-size: 0.7rem; letter-spacing: 0.15em;">HIERARQUIA</p>
             <hr class="micro-rule" />
@@ -4071,7 +4327,7 @@
           </div>
 
           <!-- [p25] GRAPH -->
-          <div class="card card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-accent card-tint-blue">
             <h3 class="serif">Graph</h3>
             <p class="mono text-coral" style="font-size: 0.7rem; letter-spacing: 0.15em;">REDE COM CICLOS</p>
             <hr class="micro-rule" />
@@ -4117,7 +4373,7 @@
         </p>
 
         <div class="grid grid-3 mt-2" style="gap: 0.8rem;">
-          <div class="card card-sm card-accent">
+          <div class="card card-sm card-accent card-tint-coral">
             <span class="tag tag-coral mt-1" style="font-size: 0.65rem;">DEFAULT</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Supervisor</h3>
             <hr class="micro-rule" />
@@ -4125,7 +4381,7 @@
               Um orquestrador roteia e agrega. Workers especializados.
             </p>
           </div>
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-red">
             <span class="tag mt-1" style="font-size: 0.65rem;">P2P</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Swarm</h3>
             <hr class="micro-rule" />
@@ -4133,7 +4389,7 @@
               Agentes peer-to-peer. Hand-offs explícitos. Sem orquestrador.
             </p>
           </div>
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-amber">
             <span class="tag mt-1" style="font-size: 0.65rem;">ECONÔMICO</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Mercado</h3>
             <hr class="micro-rule" />
@@ -4141,7 +4397,7 @@
               Tarefas leiloadas. Bidding por capacidade ou custo.
             </p>
           </div>
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-ok">
             <span class="tag mt-1" style="font-size: 0.65rem;">CONSENSO</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Democrático</h3>
             <hr class="micro-rule" />
@@ -4149,7 +4405,7 @@
               Time vota ou debate. Útil para decisões críticas. Caro.
             </p>
           </div>
-          <div class="card card-sm card-accent">
+          <div class="card card-sm card-accent card-tint-blue">
             <span class="tag tag-coral mt-1" style="font-size: 0.65rem;">SEMÂNTICO</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Roteador</h3>
             <hr class="micro-rule" />
@@ -4157,7 +4413,7 @@
               Classificador escolhe o agente certo por similaridade vetorial.
             </p>
           </div>
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-deep">
             <span class="tag mt-1" style="font-size: 0.65rem;">EVENTOS</span>
             <h3 class="serif mt-1" style="font-size: 1.3rem;">Blackboard</h3>
             <hr class="micro-rule" />
@@ -4178,18 +4434,18 @@
 
         <div class="two-col mt-2" style="grid-template-columns: 0.85fr 2fr; gap: 2rem; align-items: center;">
           <div>
-            <p class="lead" style="font-size:1.15rem; line-height:1.4;">
+            <p class="lead" style="font-size:1.55rem; line-height:1.4;">
               Um <em class="serif text-coral">orquestrador</em> recebe a query,
               decompõe, delega a workers especializados e agrega o resultado.
             </p>
-            <p class="mt-3" style="font-size:1.05rem; line-height:1.4;">
+            <p class="mt-3" style="font-size:1.35rem; line-height:1.4;">
               Recovery centralizado. Auditoria fácil. Single point
               of failure mitigado por restart strategies.
             </p>
-            <div class="mt-3" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-              <span class="tag tag-ok">Auditável</span>
-              <span class="tag">Componível</span>
-              <span class="tag tag-coral">Recovery centralizado</span>
+            <div class="mt-3" style="display: flex; flex-wrap: wrap; gap: 0.55rem;">
+              <span class="tag tag-ok" style="font-size:1rem; padding:0.4rem 0.9rem;">Auditável</span>
+              <span class="tag" style="font-size:1rem; padding:0.4rem 0.9rem;">Componível</span>
+              <span class="tag tag-coral" style="font-size:1rem; padding:0.4rem 0.9rem;">Recovery centralizado</span>
             </div>
           </div>
 
@@ -4395,7 +4651,7 @@
         <hr class="rule mt-2" />
 
         <div class="grid grid-3 mt-3" style="gap: 1.2rem;">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="card-num">01</span>
             <h3 class="serif">Message passing</h3>
             <hr class="micro-rule" />
@@ -4408,7 +4664,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-blue">
             <span class="card-num">02</span>
             <h3 class="serif">Shared session state</h3>
             <hr class="micro-rule" />
@@ -4421,7 +4677,7 @@
             </p>
           </div>
 
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-ok">
             <span class="card-num">03</span>
             <h3 class="serif">Persistent memory</h3>
             <hr class="micro-rule" />
@@ -4562,70 +4818,189 @@
         </p>
 
         <div class="grid grid-3 mt-2" style="gap: 0.55rem;">
-          <!-- [p30] 1. PEV (Planner-Executor-Verifier) -->
-          <div class="card card-accent" style="padding: 0.65rem 1rem;">
+          <!-- [p30] 1. PEV (Planner-Executor-Verifier) — red tint + 3-stage pipeline animation -->
+          <div class="card card-accent card-tint-red" style="padding: 0.65rem 1rem;">
             <span class="tag tag-coral" style="font-size: 0.62rem;">CONTROLE</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">PEV</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">PLAN · EXECUTE · VERIFY</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: pipeline 3 estágios sequenciais -->
+            <svg viewBox="0 0 220 38" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="PEV pipeline">
+              <rect x="4" y="10" width="58" height="20" rx="4" fill="#FDFAF0" stroke="#D62828" stroke-width="1.3"/>
+              <text x="33" y="24" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">PLAN</text>
+              <line x1="62" y1="20" x2="80" y2="20" stroke="#D62828" stroke-width="1.4" marker-end="url(#p30-arr-r)"/>
+              <rect x="80" y="10" width="60" height="20" rx="4" fill="#FDFAF0" stroke="#D62828" stroke-width="1.3"/>
+              <text x="110" y="24" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">EXEC</text>
+              <line x1="140" y1="20" x2="158" y2="20" stroke="#D62828" stroke-width="1.4" marker-end="url(#p30-arr-r)"/>
+              <rect x="158" y="10" width="58" height="20" rx="4" fill="#FDFAF0" stroke="#D62828" stroke-width="1.3"/>
+              <text x="187" y="24" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">VERIFY</text>
+              <defs>
+                <marker id="p30-arr-r" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#D62828"/></marker>
+                <path id="p30-pev-path" d="M 4 20 L 216 20"/>
+              </defs>
+              <circle r="3" fill="#D62828">
+                <animateMotion dur="3.6s" repeatCount="indefinite" calcMode="linear"><mpath href="#p30-pev-path"/></animateMotion>
+                <animate attributeName="opacity" values="0;1;1;1;0" dur="3.6s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Três papéis isolados — planejar, executar, verificar.
               Recuperação automática em falhas críticas.
             </p>
           </div>
 
-          <!-- [p30] 2. Ensemble Decision-Making -->
-          <div class="card card-accent card-accent-purple" style="padding: 0.65rem 1rem;">
+          <!-- [p30] 2. Ensemble Decision-Making — coral tint + fan-out/aggregation -->
+          <div class="card card-accent card-tint-coral" style="padding: 0.65rem 1rem;">
             <span class="tag" style="font-size: 0.62rem;">DELIBERAÇÃO</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">Ensemble</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">FAN-OUT + AGGREGATION</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: fan-out paralelo + agregação -->
+            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Ensemble fan-out">
+              <circle cx="22" cy="24" r="10" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.5"/>
+              <text x="22" y="27" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">Q</text>
+              <line x1="32" y1="24" x2="92" y2="8" stroke="#F77F00" stroke-width="1.2"/>
+              <line x1="32" y1="24" x2="92" y2="24" stroke="#F77F00" stroke-width="1.2"/>
+              <line x1="32" y1="24" x2="92" y2="40" stroke="#F77F00" stroke-width="1.2"/>
+              <rect x="92" y="3" width="34" height="13" rx="3" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.2"/>
+              <text x="109" y="13" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₁</text>
+              <rect x="92" y="18" width="34" height="13" rx="3" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.2"/>
+              <text x="109" y="28" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₂</text>
+              <rect x="92" y="33" width="34" height="13" rx="3" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.2"/>
+              <text x="109" y="43" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₃</text>
+              <line x1="126" y1="9" x2="180" y2="24" stroke="#F77F00" stroke-width="1.2"/>
+              <line x1="126" y1="24" x2="180" y2="24" stroke="#F77F00" stroke-width="1.2"/>
+              <line x1="126" y1="40" x2="180" y2="24" stroke="#F77F00" stroke-width="1.2"/>
+              <polygon points="180,14 200,24 180,34" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.4"/>
+              <text x="187" y="27" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">Σ</text>
+              <circle cx="60" cy="16" r="2" fill="#F77F00"><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite"/></circle>
+              <circle cx="60" cy="24" r="2" fill="#F77F00"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.7s" repeatCount="indefinite"/></circle>
+              <circle cx="60" cy="32" r="2" fill="#F77F00"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.4s" repeatCount="indefinite"/></circle>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Exploração paralela agregada. Múltiplas perspectivas convergem em decisão coletiva.
             </p>
           </div>
 
-          <!-- [p30] 3. Self-Improvement Loop -->
-          <div class="card card-accent" style="padding: 0.85rem 1.1rem; border-left-color: var(--ok);">
+          <!-- [p30] 3. Self-Improvement Loop — ok/green tint + loop circular -->
+          <div class="card card-accent card-tint-ok" style="padding: 0.85rem 1.1rem;">
             <span class="tag tag-ok" style="font-size: 0.62rem;">META-APRENDIZADO</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">Self-Improvement</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">GENERATE · CRITIQUE · REFINE</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: loop circular com 3 nós + partícula rotacionando -->
+            <svg viewBox="0 0 220 50" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Self-improvement loop">
+              <ellipse cx="110" cy="25" rx="78" ry="18" fill="none" stroke="#1A8035" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <rect x="14" y="14" width="50" height="22" rx="4" fill="#FDFAF0" stroke="#1A8035" stroke-width="1.3"/>
+              <text x="39" y="28" text-anchor="middle" fill="#0D5A1F" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">GEN</text>
+              <rect x="85" y="14" width="50" height="22" rx="4" fill="#FDFAF0" stroke="#1A8035" stroke-width="1.3"/>
+              <text x="110" y="28" text-anchor="middle" fill="#0D5A1F" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">CRIT</text>
+              <rect x="156" y="14" width="50" height="22" rx="4" fill="#FDFAF0" stroke="#1A8035" stroke-width="1.3"/>
+              <text x="181" y="28" text-anchor="middle" fill="#0D5A1F" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">REF</text>
+              <defs>
+                <path id="p30-si-path" d="M 39 25 L 110 25 L 181 25 A 78 18 0 0 1 39 25 Z"/>
+              </defs>
+              <circle r="3" fill="#1A8035">
+                <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear"><mpath href="#p30-si-path"/></animateMotion>
+              </circle>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Loop gerar-criticar-refinar até critério. Analogia direta com RLHF.
             </p>
           </div>
 
-          <!-- [p30] 4. Blackboard -->
-          <div class="card card-accent" style="padding: 0.65rem 1rem;">
+          <!-- [p30] 4. Blackboard — amber tint + agentes ao redor do quadro -->
+          <div class="card card-accent card-tint-amber" style="padding: 0.65rem 1rem;">
             <span class="tag tag-coral" style="font-size: 0.62rem;">MEMÓRIA</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">Blackboard</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">SHARED-MEMORY POOL</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: quadro central + 4 agentes lendo/escrevendo -->
+            <svg viewBox="0 0 220 50" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Blackboard shared memory">
+              <rect x="80" y="15" width="60" height="22" rx="3" fill="#003049" stroke="#C06000" stroke-width="1.5"/>
+              <text x="110" y="29" text-anchor="middle" fill="#FCBF49" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" letter-spacing="1">BOARD</text>
+              <circle cx="22" cy="14" r="8" fill="#FDFAF0" stroke="#C06000" stroke-width="1.3"/>
+              <text x="22" y="17" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₁</text>
+              <circle cx="22" cy="38" r="8" fill="#FDFAF0" stroke="#C06000" stroke-width="1.3"/>
+              <text x="22" y="41" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₂</text>
+              <circle cx="198" cy="14" r="8" fill="#FDFAF0" stroke="#C06000" stroke-width="1.3"/>
+              <text x="198" y="17" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₃</text>
+              <circle cx="198" cy="38" r="8" fill="#FDFAF0" stroke="#C06000" stroke-width="1.3"/>
+              <text x="198" y="41" text-anchor="middle" fill="#8A5000" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">A₄</text>
+              <line x1="30" y1="14" x2="80" y2="22" stroke="#C06000" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="30" y1="38" x2="80" y2="30" stroke="#C06000" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="190" y1="14" x2="140" y2="22" stroke="#C06000" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="190" y1="38" x2="140" y2="30" stroke="#C06000" stroke-width="1" stroke-dasharray="2 2"/>
+              <circle cx="55" cy="18" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="55" cy="34" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+              <circle cx="165" cy="18" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/></circle>
+              <circle cx="165" cy="34" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/></circle>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Agentes lêem/escrevem em quadro compartilhado.
               Coordenação desacoplada clássica.
             </p>
           </div>
 
-          <!-- [p30] 5. Mental-Model-in-the-Loop -->
-          <div class="card card-accent card-accent-purple" style="padding: 0.65rem 1rem;">
+          <!-- [p30] 5. Mental-Model-in-the-Loop — blue tint + simulação antes da ação -->
+          <div class="card card-accent card-tint-blue" style="padding: 0.65rem 1rem;">
             <span class="tag" style="font-size: 0.62rem;">SIMULAÇÃO</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">Mental Model</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">SIMULATE BEFORE ACT</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: agente → simulador (ondas) → ação ou rejeição -->
+            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Mental model simulation">
+              <rect x="4" y="14" width="40" height="20" rx="4" fill="#FDFAF0" stroke="#003049" stroke-width="1.3"/>
+              <text x="24" y="27" text-anchor="middle" fill="#003049" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">AGENT</text>
+              <line x1="44" y1="24" x2="82" y2="24" stroke="#003049" stroke-width="1.2" marker-end="url(#p30-arr-b)"/>
+              <ellipse cx="110" cy="24" rx="28" ry="16" fill="rgba(0,48,73,0.06)" stroke="#003049" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="110" y="22" text-anchor="middle" fill="#003049" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">SIM</text>
+              <text x="110" y="32" text-anchor="middle" fill="#1A4A64" font-family="JetBrains Mono,monospace" font-size="6">world model</text>
+              <line x1="138" y1="24" x2="172" y2="24" stroke="#003049" stroke-width="1.2" marker-end="url(#p30-arr-b)"/>
+              <rect x="172" y="6" width="44" height="16" rx="3" fill="#FDFAF0" stroke="#1A8035" stroke-width="1.2"/>
+              <text x="194" y="17" text-anchor="middle" fill="#0D5A1F" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">ACT ✓</text>
+              <rect x="172" y="26" width="44" height="16" rx="3" fill="#FDFAF0" stroke="#D62828" stroke-width="1.2"/>
+              <text x="194" y="37" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">ABORT ✗</text>
+              <defs>
+                <marker id="p30-arr-b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#003049"/></marker>
+              </defs>
+              <circle cx="110" cy="24" r="6" fill="none" stroke="#003049" stroke-width="1" opacity="0.7">
+                <animate attributeName="r" values="2;26;2" dur="2.4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0;0.8" dur="2.4s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Simula consequências antes de agir.
               Crítico em domínios irreversíveis.
             </p>
           </div>
 
-          <!-- [p30] 6. Meta-Controller -->
-          <div class="card card-accent" style="padding: 0.85rem 1.1rem; border-left-color: var(--warn);">
+          <!-- [p30] 6. Meta-Controller — deep tint + roteador para especialistas -->
+          <div class="card card-accent card-tint-deep" style="padding: 0.85rem 1.1rem;">
             <span class="tag tag-warn" style="font-size: 0.62rem;">ROUTING</span>
             <h3 class="serif mt-1" style="font-size: 1.25rem;">Meta-Controller</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">ANALYZE + DISPATCH</p>
             <hr class="micro-rule" />
+            <!-- [p30] mini-arch: classificador → 3 especialistas (só 1 acende por vez) -->
+            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Meta-controller routing">
+              <polygon points="6,24 26,12 46,24 26,36" fill="#FDFAF0" stroke="#A01818" stroke-width="1.5"/>
+              <text x="26" y="27" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">CLF</text>
+              <line x1="46" y1="20" x2="110" y2="8" stroke="#A01818" stroke-width="1.2"/>
+              <line x1="46" y1="24" x2="110" y2="24" stroke="#A01818" stroke-width="1.2"/>
+              <line x1="46" y1="28" x2="110" y2="40" stroke="#A01818" stroke-width="1.2"/>
+              <rect x="110" y="0" width="60" height="16" rx="4" fill="#FDFAF0" stroke="#A01818" stroke-width="1.3">
+                <animate attributeName="fill" values="#FDFAF0;#A01818;#FDFAF0;#FDFAF0;#FDFAF0" dur="3.6s" repeatCount="indefinite"/>
+              </rect>
+              <text x="140" y="11" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700">expert·A</text>
+              <rect x="110" y="16" width="60" height="16" rx="4" fill="#FDFAF0" stroke="#A01818" stroke-width="1.3">
+                <animate attributeName="fill" values="#FDFAF0;#FDFAF0;#A01818;#FDFAF0;#FDFAF0" dur="3.6s" repeatCount="indefinite"/>
+              </rect>
+              <text x="140" y="27" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700">expert·B</text>
+              <rect x="110" y="32" width="60" height="16" rx="4" fill="#FDFAF0" stroke="#A01818" stroke-width="1.3">
+                <animate attributeName="fill" values="#FDFAF0;#FDFAF0;#FDFAF0;#A01818;#FDFAF0" dur="3.6s" repeatCount="indefinite"/>
+              </rect>
+              <text x="140" y="43" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700">expert·C</text>
+            </svg>
             <p class="card-desc" style="font-size: 0.92rem;">
               Roteador inteligente — decide qual agente especialista despachar.
             </p>
@@ -4664,7 +5039,7 @@
           custo de migração futura. Três categorias dominam o ecossistema atual.
         </p>
         <div class="grid grid-3 mt-4">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="tag tag-coral">LÍDERES</span>
             <h3 class="serif mt-3">Maturidade</h3>
             <hr class="micro-rule" />
@@ -4673,7 +5048,7 @@
               Comunidade extensa, integrações prontas e casos de produção comprovados.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-red">
             <span class="tag">EMERGENTES</span>
             <h3 class="serif mt-3">Inovação 2026</h3>
             <hr class="micro-rule" />
@@ -4682,7 +5057,7 @@
               Suporte nativo dos LLMs líderes e orquestração de ponta.
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-accent card-tint-ok">
             <span class="tag tag-ok">ESPECIALIZADOS</span>
             <h3 class="serif mt-3">Nichos</h3>
             <hr class="micro-rule" />
@@ -4822,7 +5197,7 @@
           Cada agente assume um papel definido e a colaboração entre eles produz o resultado.
         </p>
         <div class="grid grid-2 mt-4" style="gap: 1.5rem;">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-red">
             <span class="card-num">01</span>
             <h3 class="serif">Foco</h3>
             <hr class="micro-rule" />
@@ -4831,7 +5206,7 @@
               — <em>researcher</em>, <em>writer</em>, <em>reviewer</em>.
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-accent card-tint-ok">
             <span class="card-num">02</span>
             <h3 class="serif">Diferencial</h3>
             <hr class="micro-rule" />
@@ -4895,7 +5270,7 @@
           no espaço de orquestração agêntica com integração nativa Gemini.
         </p>
         <div class="grid grid-3 mt-3">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="tag tag-coral">DIFERENCIAIS</span>
             <h3 class="serif mt-3">Gemini-first</h3>
             <hr class="micro-rule" />
@@ -4903,7 +5278,7 @@
               Integração nativa com Gemini API. Orquestração avançada multi-turno e tool use.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-blue">
             <span class="tag">COMPONENTES</span>
             <h3 class="serif mt-3">Três classes</h3>
             <hr class="micro-rule" />
@@ -4912,7 +5287,7 @@
               Composição em árvore de delegação.
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-accent card-tint-ok">
             <span class="tag tag-ok">PROTOCOLO</span>
             <h3 class="serif mt-3">A2A nativo</h3>
             <hr class="micro-rule" />
@@ -4940,7 +5315,7 @@
         </p>
 
         <div class="grid grid-3 mt-2" style="gap: 0.9rem;">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="tag tag-coral">PERFORMANCE</span>
             <h3 class="serif mt-2">Lightning-Fast</h3>
             <hr class="micro-rule" />
@@ -4949,7 +5324,7 @@
               <strong>Multimodal nativo</strong> — texto, imagem, áudio, vídeo.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-deep">
             <span class="tag">ARQUITETURA</span>
             <h3 class="serif mt-2">Três Camadas</h3>
             <hr class="micro-rule" />
@@ -4958,7 +5333,7 @@
               <code>Control Plane</code> (UI de monitoramento).
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-accent card-tint-ok">
             <span class="tag tag-ok">INTEGRAÇÃO</span>
             <h3 class="serif mt-2">Model-Agnostic</h3>
             <hr class="micro-rule" />
@@ -5040,7 +5415,7 @@
         </p>
 
         <div class="grid grid-3 mt-2">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-blue">
             <span class="card-num">01</span>
             <h3 class="serif">MCP Hosts</h3>
             <hr class="micro-rule" />
@@ -5048,7 +5423,7 @@
               Aplicações que hospedam agentes — Claude Desktop, Cursor, IDEs, custom apps.
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-accent card-tint-coral">
             <span class="card-num">02</span>
             <h3 class="serif">MCP Clients</h3>
             <hr class="micro-rule" />
@@ -5056,7 +5431,7 @@
               Mantêm conexões 1:1 com servidores. Vivem dentro do host.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-red">
             <span class="card-num">03</span>
             <h3 class="serif">MCP Servers</h3>
             <hr class="micro-rule" />
@@ -6001,28 +6376,28 @@
         <h2>Trade-offs em segurança</h2>
         <hr class="rule mt-3" />
         <div class="grid grid-2 mt-4" style="gap: 1.4rem;">
-          <div class="card card-elev card-accent" style="border-left-color: var(--purple);">
+          <div class="card card-accent card-tint-red">
             <h3 class="serif">Autonomia ⇄ Controle</h3>
             <hr class="micro-rule" />
             <p class="card-desc">
               Mais liberdade = mais risco. Governança restringe casos extremos mas reduz capacidade.
             </p>
           </div>
-          <div class="card card-elev card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-accent card-tint-coral">
             <h3 class="serif">Performance ⇄ Segurança</h3>
             <hr class="micro-rule" />
             <p class="card-desc">
               GuardRails adicionam latência. Validações em cascata aumentam o custo total.
             </p>
           </div>
-          <div class="card card-elev card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-accent card-tint-ok">
             <h3 class="serif">Generalidade ⇄ Especialização</h3>
             <hr class="micro-rule" />
             <p class="card-desc">
               Específico é <strong>mais seguro</strong> — agentes genéricos amplificam a superfície de ataque.
             </p>
           </div>
-          <div class="card card-elev card-accent" style="border-left-color: var(--warn);">
+          <div class="card card-accent card-tint-amber">
             <h3 class="serif">Custo ⇄ Proteção</h3>
             <hr class="micro-rule" />
             <p class="card-desc">
@@ -6386,7 +6761,7 @@
           <em class="serif text-coral">know-how arquitetural intransferível</em> que não viaja com novos pesos.
         </p>
         <div class="grid grid-3 mt-3" style="gap: 1rem;">
-          <div class="card card-accent">
+          <div class="card card-accent card-tint-coral">
             <span class="tag tag-coral">ERRO COMPOSTO</span>
             <h3 class="serif mt-2">95%<sup>20</sup> = 36%</h3>
             <hr class="micro-rule" />
@@ -6394,7 +6769,7 @@
               Cadeia de 20 passos a 95% cada → 36% end-to-end. Harness reduz <code>n</code> ou insere verificação.
             </p>
           </div>
-          <div class="card card-accent card-accent-purple">
+          <div class="card card-accent card-tint-blue">
             <span class="tag">EVIDÊNCIA</span>
             <h3 class="serif mt-2">Manus → ~US$ 2B</h3>
             <hr class="micro-rule" />
@@ -6402,7 +6777,7 @@
               Meta pagou ~2B por um wrapper sobre Claude. LangChain +13,7 pts no Terminal Bench sem trocar modelo.
             </p>
           </div>
-          <div class="card card-accent" style="border-left-color: var(--error);">
+          <div class="card card-accent card-tint-red">
             <span class="tag tag-error">INEVITÁVEL</span>
             <h3 class="serif mt-2">Alucinação</h3>
             <hr class="micro-rule" />
@@ -6621,7 +6996,7 @@
           Mudar <em>só</em> o harness moveu 15 LLMs <span class="text-coral">20+ posições</span> no TerminalBench 2.0.
         </p>
         <div class="grid grid-3 mt-1" style="gap: 1rem;">
-          <div class="card card-elev card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-accent card-tint-coral">
             <span class="card-num">01</span>
             <h3 class="serif">LangChain Deep Agents</h3>
             <hr class="micro-rule" />
@@ -6630,7 +7005,7 @@
               Loops de auto-verificação, doom-loop detection, context injection.
             </p>
           </div>
-          <div class="card card-elev card-accent card-accent-purple">
+          <div class="card card-accent card-tint-red">
             <span class="card-num">02</span>
             <h3 class="serif">Manus (Meta dez/25)</h3>
             <hr class="micro-rule" />
@@ -6639,7 +7014,7 @@
               filesystem como contexto, preservar erros no trace.
             </p>
           </div>
-          <div class="card card-elev card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-accent card-tint-ok">
             <span class="card-num">03</span>
             <h3 class="serif">ICML 2026</h3>
             <hr class="micro-rule" />
@@ -6663,38 +7038,38 @@
         <h2 style="margin-bottom:0; font-size:3rem;">Takeaways · Harness</h2>
         <hr class="rule" style="margin: 0.2rem 0 0.1rem;" />
         <div class="grid grid-2 mt-2" style="gap: 0.65rem;">
-          <div class="card card-sm card-elev card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-sm card-accent card-tint-coral">
             <h3 class="serif" style="font-size:1.2rem;">01 · O valor mora no harness</h3>
             <hr class="micro-rule" />
             <p class="card-desc">Mesmo LLM + harness diferente = performance radicalmente diferente. Calibração é o
               <em>moat</em>.
             </p>
           </div>
-          <div class="card card-sm card-elev card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-red">
             <h3 class="serif" style="font-size:1.2rem;">02 · Erro composto é brutal</h3>
             <hr class="micro-rule" />
             <p class="card-desc">95%<sup>20</sup> = 36%. Reduza <code>n</code> ou insira checkpoints. Verificação quebra
               a multiplicação exponencial.</p>
           </div>
-          <div class="card card-sm card-elev card-accent" style="border-left-color: var(--ok);">
+          <div class="card card-sm card-accent card-tint-ok">
             <h3 class="serif" style="font-size:1.2rem;">03 · Pense como OS</h3>
             <hr class="micro-rule" />
             <p class="card-desc">LLM = CPU · janela = RAM · filesystem = disco · tools = syscalls. CoALA + BEAM/OTP
               mapeiam 1:1.</p>
           </div>
-          <div class="card card-sm card-elev card-accent" style="border-left-color: var(--warn);">
+          <div class="card card-sm card-accent card-tint-amber">
             <h3 class="serif" style="font-size:1.2rem;">04 · Alucinação é arquitetural</h3>
             <hr class="micro-rule" />
             <p class="card-desc">Matematicamente inevitável. RAG, verificação, guardrails, human-in-the-loop — não
               prompt.</p>
           </div>
-          <div class="card card-sm card-elev card-accent" style="border-left-color: var(--coral);">
+          <div class="card card-sm card-accent card-tint-blue">
             <h3 class="serif" style="font-size:1.2rem;">05 · Skills + progressive disclosure</h3>
             <hr class="micro-rule" />
             <p class="card-desc">Expor todas as tools destrói performance. Carregamento lazy mantém contexto enxuto e
               capacidade ilimitada.</p>
           </div>
-          <div class="card card-sm card-elev card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-deep">
             <h3 class="serif" style="font-size:1.2rem;">06 · Tools são 70% do esforço</h3>
             <hr class="micro-rule" />
             <p class="card-desc">Não é prompt engineering que falha em produção — é tools mal desenhadas. Docstrings,
@@ -6731,7 +7106,7 @@
         </p>
 
         <div class="grid grid-2 mt-2" style="gap: 0.9rem;">
-          <div class="card card-accent" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-coral" style="padding: 1.1rem 1.3rem;">
             <span class="card-num" style="font-size:2rem;">01</span>
             <h3 class="serif" style="font-size: 1.35rem;">Problema aberto e iterativo</h3>
             <hr class="micro-rule" />
@@ -6741,7 +7116,7 @@
             </p>
           </div>
 
-          <div class="card card-accent" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-ok" style="padding: 1.1rem 1.3rem;">
             <span class="card-num" style="font-size:2rem;">02</span>
             <h3 class="serif" style="font-size: 1.35rem;">Decomposição valiosa</h3>
             <hr class="micro-rule" />
@@ -6751,7 +7126,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-purple" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-blue" style="padding: 1.1rem 1.3rem;">
             <span class="card-num" style="font-size:2rem;">03</span>
             <h3 class="serif" style="font-size: 1.35rem;">Tolerância a tentativa-erro</h3>
             <hr class="micro-rule" />
@@ -6761,7 +7136,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-purple" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-amber" style="padding: 1.1rem 1.3rem;">
             <span class="card-num" style="font-size:2rem;">04</span>
             <h3 class="serif" style="font-size: 1.35rem;">Personalização por contexto</h3>
             <hr class="micro-rule" />
@@ -6786,7 +7161,7 @@
         </p>
 
         <div class="grid grid-2 mt-2" style="gap: 0.9rem;">
-          <div class="card card-accent card-accent-error" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-red" style="padding: 1.1rem 1.3rem;">
             <span class="tag tag-error" style="font-size:0.68rem;">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.35rem;">FAQ e atendimento simples</h3>
             <hr class="micro-rule" />
@@ -6795,7 +7170,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-error" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-deep" style="padding: 1.1rem 1.3rem;">
             <span class="tag tag-error" style="font-size:0.68rem;">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.35rem;">Operações regulamentadas</h3>
             <hr class="micro-rule" />
@@ -6804,7 +7179,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-error" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-amber" style="padding: 1.1rem 1.3rem;">
             <span class="tag tag-error" style="font-size:0.68rem;">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.35rem;">Latência rígida (&lt; 2s)</h3>
             <hr class="micro-rule" />
@@ -6813,7 +7188,7 @@
             </p>
           </div>
 
-          <div class="card card-accent card-accent-error" style="padding: 1.1rem 1.3rem;">
+          <div class="card card-accent card-tint-coral" style="padding: 1.1rem 1.3rem;">
             <span class="tag tag-error" style="font-size:0.68rem;">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.35rem;">Volume sem variabilidade</h3>
             <hr class="micro-rule" />
@@ -6904,7 +7279,7 @@
         </p>
 
         <div class="grid grid-5 mt-4" style="gap: 0.8rem;">
-          <div class="card" style="padding: 1.3rem; text-align: center;">
+          <div class="card card-accent card-tint-coral" style="padding: 1.3rem; text-align: center;">
             <div style="font-size: 2.2rem; color: var(--coral); margin-bottom: 0.5rem;">
               <svg class="icon icon-xl" viewBox="0 0 24 24" style="width: 2rem; height: 2rem; color: var(--coral);">
                 <circle cx="12" cy="12" r="10" />
@@ -6918,7 +7293,7 @@
             </p>
           </div>
 
-          <div class="card" style="padding: 1.3rem; text-align: center;">
+          <div class="card card-accent card-tint-red" style="padding: 1.3rem; text-align: center;">
             <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">
               <svg class="icon icon-xl" viewBox="0 0 24 24"
                 style="width: 2rem; height: 2rem; color: var(--purple-soft);">
@@ -6933,7 +7308,7 @@
             </p>
           </div>
 
-          <div class="card" style="padding: 1.3rem; text-align: center;">
+          <div class="card card-accent card-tint-amber" style="padding: 1.3rem; text-align: center;">
             <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">
               <svg class="icon icon-xl" viewBox="0 0 24 24" style="width: 2rem; height: 2rem; color: var(--coral);">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -6946,7 +7321,7 @@
             </p>
           </div>
 
-          <div class="card" style="padding: 1.3rem; text-align: center;">
+          <div class="card card-accent card-tint-blue" style="padding: 1.3rem; text-align: center;">
             <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">
               <svg class="icon icon-xl" viewBox="0 0 24 24"
                 style="width: 2rem; height: 2rem; color: var(--purple-soft);">
@@ -6961,7 +7336,7 @@
             </p>
           </div>
 
-          <div class="card" style="padding: 1.3rem; text-align: center;">
+          <div class="card card-accent card-tint-ok" style="padding: 1.3rem; text-align: center;">
             <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">
               <svg class="icon icon-xl" viewBox="0 0 24 24" style="width: 2rem; height: 2rem; color: var(--coral);">
                 <path d="M21 12a9 9 0 11-9-9c2.5 0 4.7 1 6.4 2.6L21 8" />
@@ -6994,7 +7369,7 @@
         </p>
 
         <div class="grid grid-3 mt-2" style="gap: 0.8rem;">
-          <div class="card card-sm card-accent">
+          <div class="card card-sm card-accent card-tint-amber">
             <span class="tag tag-coral">CAMADA 1</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Schema validation</h3>
             <p class="card-desc mt-2">
@@ -7002,7 +7377,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent">
+          <div class="card card-sm card-accent card-tint-coral">
             <span class="tag tag-coral">CAMADA 2</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Regras de negócio</h3>
             <p class="card-desc mt-2">
@@ -7010,7 +7385,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent">
+          <div class="card card-sm card-accent card-tint-ok">
             <span class="tag tag-coral">CAMADA 3</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">LLM crítico</h3>
             <p class="card-desc mt-2">
@@ -7018,7 +7393,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-blue">
             <span class="tag">CAMADA 4</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Guardrails</h3>
             <p class="card-desc mt-2">
@@ -7026,7 +7401,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-red">
             <span class="tag">CAMADA 5</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">HITL crítico</h3>
             <p class="card-desc mt-2">
@@ -7034,7 +7409,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-purple">
+          <div class="card card-sm card-accent card-tint-deep">
             <span class="tag">CAMADA 6</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Reversibilidade</h3>
             <p class="card-desc mt-2">
@@ -7140,7 +7515,7 @@
         </p>
 
         <div class="grid grid-3 mt-2" style="gap: 0.8rem;">
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-red">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Multi-agente prematuro</h3>
             <p class="card-desc mt-2">
@@ -7148,7 +7523,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-coral">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Comunicação em prosa</h3>
             <p class="card-desc mt-2">
@@ -7157,7 +7532,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-amber">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Sem timeouts duros</h3>
             <p class="card-desc mt-2">
@@ -7166,7 +7541,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-deep">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Tools com escopo amplo</h3>
             <p class="card-desc mt-2">
@@ -7175,7 +7550,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-blue">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Memória global mutável</h3>
             <p class="card-desc mt-2">
@@ -7184,7 +7559,7 @@
             </p>
           </div>
 
-          <div class="card card-sm card-accent card-accent-error">
+          <div class="card card-sm card-accent card-tint-ok">
             <span class="tag tag-error">EVITE</span>
             <h3 class="serif mt-1" style="font-size: 1.2rem;">Avaliação ad-hoc</h3>
             <p class="card-desc mt-2">
