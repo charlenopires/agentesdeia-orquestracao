@@ -1352,6 +1352,47 @@
 
     /* ── Compact card (grades densas) ── */
     .card-sm { padding: 1.15rem 1.4rem !important; }
+
+    /* ── Arch Use Button ── */
+    .arch-use-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      margin-top: 0.55rem;
+      padding: 0.26rem 0.65rem;
+      background: rgba(0,48,73,0.06);
+      border: 1px solid rgba(0,48,73,0.22);
+      border-radius: 20px;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      text-transform: uppercase;
+    }
+    .arch-use-btn:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
+    .arch-use-btn svg { flex-shrink: 0; }
+    dialog.arch-dialog {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      background: #FDFAF0;
+      border: 1.5px solid #C8C0A0;
+      border-top: 3px solid #D62828;
+      border-radius: 12px;
+      padding: 1.8rem 2.2rem 1.4rem;
+      max-width: 500px; width: 92%;
+      box-shadow: 0 12px 56px rgba(0,48,73,0.28);
+      z-index: 99999;
+    }
+    dialog.arch-dialog::backdrop { background: rgba(0,24,40,0.55); backdrop-filter: blur(3px); }
+    .arch-dialog-eyebrow { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; color: #F77F00; margin: 0 0 0.3rem; }
+    .arch-dialog h4 { font-family: var(--font-serif); font-size: 1.45rem; font-style: italic; color: #003049; margin: 0 0 0.65rem; }
+    .arch-dialog p { font-family: var(--font-body); font-size: 0.98rem; color: #1A4A64; line-height: 1.6; margin: 0 0 1.3rem; }
+    .arch-dialog-close { padding: 0.35rem 1rem; background: #003049; color: #fff; border: none; border-radius: 6px; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; }
+    .arch-dialog-close:hover { background: #D62828; }
   </style>
 </head>
 
@@ -1518,7 +1559,7 @@
       <section>
         <h2>O que é Inteligência Artificial?</h2>
         <hr class="rule mt-3" />
-        <div class="ia-concept-box mt-4">
+        <div class="ia-concept-box mt-4" style="font-size: 2rem;">
           A capacidade de um sistema de computador ou máquina de realizar tarefas
           que normalmente requerem inteligência humana, como
           <span class="ia-highlight">percepção visual, reconhecimento de fala,
@@ -4294,6 +4335,7 @@
               Sequência fixa, dependências claras.
               <span class="text-coral">Apropriado:</span> extrair → classificar → publicar.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p25-chain').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p25] TREE -->
@@ -4324,6 +4366,7 @@
               Delegação multi-nível com escopo. Cada nó decide entre executar,
               delegar ou retornar.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p25-tree').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p25] GRAPH -->
@@ -4356,8 +4399,12 @@
               Conexões arbitrárias. <em>LangGraph</em> adota essa abstração.
               Flexibilidade máxima, custo: ciclos não-terminantes.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p25-graph').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
         </div>
+        <dialog id="dlg-p25-chain" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · CHAIN</p><h4>Sequência linear com dependências</h4><p>Sistema de análise de documentos jurídicos: um agente extrai o texto do PDF, o seguinte classifica as cláusulas, o terceiro gera o resumo e o quarto formata o relatório final. Cada etapa só inicia após a anterior — rastreabilidade total, sem paralelismo desnecessário.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p25-tree" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · TREE</p><h4>Hierarquia de delegação</h4><p>Central de suporte técnico: agente root classifica o ticket (hardware, software ou rede) e delega ao sub-agente especialista. Se necessário, esse sub-agente pode sub-delegar para análise de logs. O resultado sobe pela árvore até chegar ao usuário com resposta consolidada.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p25-graph" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · GRAPH</p><h4>Ciclos controlados com LangGraph</h4><p>Gerador de pesquisa com revisão iterativa: agente busca informação → agente avalia relevância → se insuficiente, volta ao buscador; se suficiente, passa ao agente de síntese. Ciclos terminam ao atingir threshold de qualidade ou limite de iterações.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
       <!-- ═══════════════════════════════════════════════════════════
@@ -4380,6 +4427,7 @@
             <p class="card-desc">
               Um orquestrador roteia e agrega. Workers especializados.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-supervisor').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
           <div class="card card-sm card-accent card-tint-red">
             <span class="tag mt-1" style="font-size: 0.65rem;">P2P</span>
@@ -4388,6 +4436,7 @@
             <p class="card-desc">
               Agentes peer-to-peer. Hand-offs explícitos. Sem orquestrador.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-swarm').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
           <div class="card card-sm card-accent card-tint-amber">
             <span class="tag mt-1" style="font-size: 0.65rem;">ECONÔMICO</span>
@@ -4396,6 +4445,7 @@
             <p class="card-desc">
               Tarefas leiloadas. Bidding por capacidade ou custo.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-mercado').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
           <div class="card card-sm card-accent card-tint-ok">
             <span class="tag mt-1" style="font-size: 0.65rem;">CONSENSO</span>
@@ -4404,6 +4454,7 @@
             <p class="card-desc">
               Time vota ou debate. Útil para decisões críticas. Caro.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-democratico').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
           <div class="card card-sm card-accent card-tint-blue">
             <span class="tag tag-coral mt-1" style="font-size: 0.65rem;">SEMÂNTICO</span>
@@ -4412,6 +4463,7 @@
             <p class="card-desc">
               Classificador escolhe o agente certo por similaridade vetorial.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-roteador').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
           <div class="card card-sm card-accent card-tint-deep">
             <span class="tag mt-1" style="font-size: 0.65rem;">EVENTOS</span>
@@ -4420,8 +4472,15 @@
             <p class="card-desc">
               Estado compartilhado, agentes reagem a mudanças. Event-driven.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p26-blackboard').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
         </div>
+        <dialog id="dlg-p26-supervisor" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SUPERVISOR</p><h4>Relatório de inteligência de mercado</h4><p>O supervisor recebe a query do usuário, delega busca de dados ao agente web, análise ao agente analista e formatação ao agente editor. Consolida os três outputs em um relatório coerente — ideal quando os subtasks têm dependência do resultado final mas não entre si.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p26-swarm" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SWARM</p><h4>Triagem hospitalar digital</h4><p>Agente de triagem inicial coleta os sintomas e faz hand-off para agente de urgência ou clínica geral, que pode passar para agente especialista. Sem coordenador central — cada hand-off é baseado no estado clínico atual, permitindo adaptação dinâmica ao longo da jornada do paciente.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p26-mercado" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · MERCADO</p><h4>Processamento de jobs de ML em escala</h4><p>Tarefas de treinamento são publicadas como lotes no marketplace. Agentes-GPU fazem bid baseado em capacidade disponível e custo atual. O job vai para o agente que oferecer melhor relação custo-velocidade — útil quando recursos são heterogêneos e variáveis.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p26-democratico" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · DEMOCRÁTICO</p><h4>Revisão de arquitetura de software</h4><p>Três agentes revisores (segurança, performance, manutenibilidade) analisam o PR independentemente e votam. Aprovação requer maioria qualificada. Use quando a decisão é irreversível, tem alto impacto e o custo de LLM extra é menor do que o custo de um erro.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p26-roteador" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · ROTEADOR</p><h4>Assistente corporativo multi-domínio</h4><p>A pergunta do usuário é embedada e comparada com os embeddings de cada domínio (RH, TI, Financeiro, Jurídico). O agente com maior similaridade vetorial recebe a query — sem LLM extra no roteamento, latência mínima e custo zero adicional.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p26-blackboard" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · BLACKBOARD</p><h4>Detecção de intrusão em tempo real</h4><p>Sensores de rede, logs de autenticação e alertas de firewall postam eventos no blackboard. Agente correlacionador detecta padrões de ataque cross-sensor (ex: falhas de login + scan de portas + exfiltração) e aciona resposta automática.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -4447,6 +4506,7 @@
               <span class="tag" style="font-size:1rem; padding:0.4rem 0.9rem;">Componível</span>
               <span class="tag tag-coral" style="font-size:1rem; padding:0.4rem 0.9rem;">Recovery centralizado</span>
             </div>
+            <button class="arch-use-btn" style="margin-top:1rem;" onclick="document.getElementById('dlg-p27-supervisor').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <div style="width:100%;">
@@ -4640,6 +4700,7 @@
             </svg>
           </div>
         </div>
+        <dialog id="dlg-p27-supervisor" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SUPERVISOR PATTERN</p><h4>Análise de contratos empresariais</h4><p>O supervisor recebe o documento jurídico, delega leitura jurídica ao agente advogado, análise financeira ao agente CFO e verificação de compliance ao agente auditor. Consolida os três pareceres em um relatório de risco unificado — cada worker é especializado e independente, mas o supervisor garante que todos os ângulos são cobertos antes da entrega.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -4662,6 +4723,7 @@
             <p class="mono text-coral mt-3" style="font-size: 0.8rem;">
               HTTP / gRPC / A2A protocol
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p28-msgpass').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <div class="card card-accent card-tint-blue">
@@ -4675,6 +4737,7 @@
             <p class="mono text-coral mt-3" style="font-size: 0.8rem;">
               Redis / ETS / shared dict
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p28-session').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <div class="card card-accent card-tint-ok">
@@ -4688,6 +4751,7 @@
             <p class="mono text-coral mt-3" style="font-size: 0.8rem;">
               pgvector / Neo4j / MemGPT
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p28-memory').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
         </div>
 
@@ -4695,6 +4759,9 @@
           <em>79% das falhas multi-agent são de design, não técnicas.</em>
           Schemas tipados e ownership claro de estado resolvem a maioria.
         </div>
+        <dialog id="dlg-p28-msgpass" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · MESSAGE PASSING</p><h4>Pipeline de NLP para e-commerce</h4><p>Agente de intenção envia {intent:'compra', entities:{produto:'notebook', preco_max:5000}} ao agente de busca via gRPC. Schemas JSON tipados eliminam ambiguidade e permitem validação automática no gateway — use quando agentes são desenvolvidos por times diferentes e a interface precisa ser um contrato.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p28-session" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SHARED STATE</p><h4>Booking de viagem multi-agente</h4><p>Agentes de voo, hotel e carro lêem e escrevem no estado de sessão compartilhado {destino, datas, orçamento, reservas}. Cada agente completa sua parte sem precisar repassar o contexto inteiro — overhead zero de troca. Use quando os agentes operam no mesmo workflow e o volume de dados compartilhados é alto.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p28-memory" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · PERSISTENT MEMORY</p><h4>Assistente de produtividade pessoal</h4><p>Preferências, projetos em andamento e decisões passadas são promovidos de contexto temporário para pgvector no fim de cada sessão. Na conversa seguinte, o agente recupera o contexto relevante via busca semântica — sem precisar repassar todo o histórico no prompt.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
@@ -4808,24 +4875,24 @@
       <!-- ═══════════════════════════════════════════════════════════
      PÁGINA 30 · Catálogo expandido de arquiteturas
      ═══════════════════════════════════════════════════════════ -->
-      <section style="padding-top: 0.4rem !important;">
-        <h2 style="margin-bottom:0; font-size:3rem;">Catálogo expandido de <em>arquiteturas</em></h2>
-        <hr class="rule mt-1" />
+      <section style="padding-top: 0.3rem !important; display:flex; flex-direction:column; height:100%;">
+        <h2 style="margin-bottom:0; font-size:2.4rem;">Catálogo expandido de <em>arquiteturas</em></h2>
+        <hr class="rule mt-1" style="margin-bottom:0.2rem;" />
 
-        <p class="lead mt-1" style="max-width: min(1100px, 100%); font-size: 1.1rem; line-height: 1.4;">
+        <p class="lead" style="max-width: min(1100px, 100%); font-size: 0.95rem; line-height: 1.3; margin: 0 0 0.3rem;">
           Além dos padrões canônicos, há arquiteturas especializadas —
           <em class="serif text-coral">deliberação coletiva, simulação, auto-melhoria, controle hierárquico</em>.
         </p>
 
-        <div class="grid grid-3 mt-2" style="gap: 0.55rem;">
+        <div class="grid grid-3" style="gap: 0.5rem; flex: 1; align-content: stretch; align-items: stretch;">
           <!-- [p30] 1. PEV (Planner-Executor-Verifier) — red tint + 3-stage pipeline animation -->
-          <div class="card card-accent card-tint-red" style="padding: 0.65rem 1rem;">
+          <div class="card card-accent card-tint-red" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag tag-coral" style="font-size: 0.62rem;">CONTROLE</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">PEV</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">PEV</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">PLAN · EXECUTE · VERIFY</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: pipeline 3 estágios sequenciais -->
-            <svg viewBox="0 0 220 38" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="PEV pipeline">
+            <svg viewBox="0 0 220 38" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="PEV pipeline">
               <rect x="4" y="10" width="58" height="20" rx="4" fill="#FDFAF0" stroke="#D62828" stroke-width="1.3"/>
               <text x="33" y="24" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">PLAN</text>
               <line x1="62" y1="20" x2="80" y2="20" stroke="#D62828" stroke-width="1.4" marker-end="url(#p30-arr-r)"/>
@@ -4843,20 +4910,21 @@
                 <animate attributeName="opacity" values="0;1;1;1;0" dur="3.6s" repeatCount="indefinite"/>
               </circle>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Três papéis isolados — planejar, executar, verificar.
               Recuperação automática em falhas críticas.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-pev').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p30] 2. Ensemble Decision-Making — coral tint + fan-out/aggregation -->
-          <div class="card card-accent card-tint-coral" style="padding: 0.65rem 1rem;">
+          <div class="card card-accent card-tint-coral" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag" style="font-size: 0.62rem;">DELIBERAÇÃO</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">Ensemble</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">Ensemble</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">FAN-OUT + AGGREGATION</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: fan-out paralelo + agregação -->
-            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Ensemble fan-out">
+            <svg viewBox="0 0 220 48" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="Ensemble fan-out">
               <circle cx="22" cy="24" r="10" fill="#FDFAF0" stroke="#F77F00" stroke-width="1.5"/>
               <text x="22" y="27" text-anchor="middle" fill="#C06000" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">Q</text>
               <line x1="32" y1="24" x2="92" y2="8" stroke="#F77F00" stroke-width="1.2"/>
@@ -4877,19 +4945,20 @@
               <circle cx="60" cy="24" r="2" fill="#F77F00"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.7s" repeatCount="indefinite"/></circle>
               <circle cx="60" cy="32" r="2" fill="#F77F00"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.4s" repeatCount="indefinite"/></circle>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Exploração paralela agregada. Múltiplas perspectivas convergem em decisão coletiva.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-ensemble').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p30] 3. Self-Improvement Loop — ok/green tint + loop circular -->
-          <div class="card card-accent card-tint-ok" style="padding: 0.85rem 1.1rem;">
+          <div class="card card-accent card-tint-ok" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag tag-ok" style="font-size: 0.62rem;">META-APRENDIZADO</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">Self-Improvement</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">Self-Improvement</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">GENERATE · CRITIQUE · REFINE</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: loop circular com 3 nós + partícula rotacionando -->
-            <svg viewBox="0 0 220 50" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Self-improvement loop">
+            <svg viewBox="0 0 220 50" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="Self-improvement loop">
               <ellipse cx="110" cy="25" rx="78" ry="18" fill="none" stroke="#1A8035" stroke-width="1.2" stroke-dasharray="4 3"/>
               <rect x="14" y="14" width="50" height="22" rx="4" fill="#FDFAF0" stroke="#1A8035" stroke-width="1.3"/>
               <text x="39" y="28" text-anchor="middle" fill="#0D5A1F" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">GEN</text>
@@ -4904,19 +4973,20 @@
                 <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear"><mpath href="#p30-si-path"/></animateMotion>
               </circle>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Loop gerar-criticar-refinar até critério. Analogia direta com RLHF.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-selfimprove').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p30] 4. Blackboard — amber tint + agentes ao redor do quadro -->
-          <div class="card card-accent card-tint-amber" style="padding: 0.65rem 1rem;">
+          <div class="card card-accent card-tint-amber" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag tag-coral" style="font-size: 0.62rem;">MEMÓRIA</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">Blackboard</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">Blackboard</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">SHARED-MEMORY POOL</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: quadro central + 4 agentes lendo/escrevendo -->
-            <svg viewBox="0 0 220 50" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Blackboard shared memory">
+            <svg viewBox="0 0 220 50" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="Blackboard shared memory">
               <rect x="80" y="15" width="60" height="22" rx="3" fill="#003049" stroke="#C06000" stroke-width="1.5"/>
               <text x="110" y="29" text-anchor="middle" fill="#FCBF49" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" letter-spacing="1">BOARD</text>
               <circle cx="22" cy="14" r="8" fill="#FDFAF0" stroke="#C06000" stroke-width="1.3"/>
@@ -4936,20 +5006,21 @@
               <circle cx="165" cy="18" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/></circle>
               <circle cx="165" cy="34" r="1.8" fill="#C06000"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/></circle>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Agentes lêem/escrevem em quadro compartilhado.
               Coordenação desacoplada clássica.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-blackboard').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p30] 5. Mental-Model-in-the-Loop — blue tint + simulação antes da ação -->
-          <div class="card card-accent card-tint-blue" style="padding: 0.65rem 1rem;">
+          <div class="card card-accent card-tint-blue" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag" style="font-size: 0.62rem;">SIMULAÇÃO</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">Mental Model</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">Mental Model</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">SIMULATE BEFORE ACT</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: agente → simulador (ondas) → ação ou rejeição -->
-            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Mental model simulation">
+            <svg viewBox="0 0 220 48" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="Mental model simulation">
               <rect x="4" y="14" width="40" height="20" rx="4" fill="#FDFAF0" stroke="#003049" stroke-width="1.3"/>
               <text x="24" y="27" text-anchor="middle" fill="#003049" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">AGENT</text>
               <line x1="44" y1="24" x2="82" y2="24" stroke="#003049" stroke-width="1.2" marker-end="url(#p30-arr-b)"/>
@@ -4969,20 +5040,21 @@
                 <animate attributeName="opacity" values="0.8;0;0.8" dur="2.4s" repeatCount="indefinite"/>
               </circle>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Simula consequências antes de agir.
               Crítico em domínios irreversíveis.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-mental').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
 
           <!-- [p30] 6. Meta-Controller — deep tint + roteador para especialistas -->
-          <div class="card card-accent card-tint-deep" style="padding: 0.85rem 1.1rem;">
+          <div class="card card-accent card-tint-deep" style="padding: 0.55rem 0.85rem; display:flex; flex-direction:column;">
             <span class="tag tag-warn" style="font-size: 0.62rem;">ROUTING</span>
-            <h3 class="serif mt-1" style="font-size: 1.25rem;">Meta-Controller</h3>
+            <h3 class="serif mt-1" style="font-size: 1.15rem; margin-bottom:0;">Meta-Controller</h3>
             <p class="mono text-dim" style="font-size: 0.65rem; letter-spacing: 0.12em; margin: 0;">ANALYZE + DISPATCH</p>
             <hr class="micro-rule" />
             <!-- [p30] mini-arch: classificador → 3 especialistas (só 1 acende por vez) -->
-            <svg viewBox="0 0 220 48" style="width:100%; margin: 0.25rem 0 0.1rem; display:block;" aria-label="Meta-controller routing">
+            <svg viewBox="0 0 220 48" style="height:28px; width:auto; margin: 0.15rem auto 0.08rem; display:block;" aria-label="Meta-controller routing">
               <polygon points="6,24 26,12 46,24 26,36" fill="#FDFAF0" stroke="#A01818" stroke-width="1.5"/>
               <text x="26" y="27" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700">CLF</text>
               <line x1="46" y1="20" x2="110" y2="8" stroke="#A01818" stroke-width="1.2"/>
@@ -5001,15 +5073,22 @@
               </rect>
               <text x="140" y="43" text-anchor="middle" fill="#A01818" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700">expert·C</text>
             </svg>
-            <p class="card-desc" style="font-size: 0.92rem;">
+            <p class="card-desc" style="font-size: 0.88rem; margin-top:0.15rem; flex:1;">
               Roteador inteligente — decide qual agente especialista despachar.
             </p>
+            <button class="arch-use-btn" onclick="document.getElementById('dlg-p30-meta').showModal()"><svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" repeatCount="indefinite"/></circle><path d="M7.5 8c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5c0 1-.7 1.9-1.7 2.3-.4.2-.8.5-.8.9v.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="currentColor"><animate attributeName="r" values="1;1.4;1" dur="2.2s" repeatCount="indefinite"/></circle></svg>Quando usar?</button>
           </div>
         </div>
 
-        <p class="footnote-light mt-1" style="font-size: 0.85rem; margin-top: 0.3rem;">
+        <p class="footnote-light mt-1" style="font-size: 1.05rem; margin-top: 0.3rem;">
           Cada arquitetura emergiu de necessidades específicas — a escolha vem da <em>natureza do problema</em>, não do hype.
         </p>
+        <dialog id="dlg-p30-pev" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · PEV</p><h4>Deploy de infraestrutura cloud</h4><p>O Planner gera o plano Terraform, o Executor aplica as mudanças na AWS e o Verifier consulta a API para validar se o estado real corresponde ao desejado — acionando rollback automático se houver divergência. Use quando erros de execução têm custo alto e verificação independente é obrigatória.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p30-ensemble" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · ENSEMBLE</p><h4>Diagnóstico médico assistido por IA</h4><p>Três agentes especialistas analisam em paralelo: sintomas clínicos, resultados de exames e histórico familiar. Cada um produz um diagnóstico diferencial com nível de confiança, e o sistema agrega por votação ponderada. Use quando uma única perspectiva é insuficiente e o custo de tokens é justificável pelo risco da decisão.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p30-selfimprove" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SELF-IMPROVEMENT</p><h4>Gerador de código com auto-teste</h4><p>O agente gera a função → executa os testes unitários → analisa os erros → refina o código. Repete até todos os testes passarem ou atingir o limite de iterações. Reduz 80% dos bugs triviais antes de qualquer revisão humana — use quando o critério de qualidade é objetivamente mensurável.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p30-blackboard" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · BLACKBOARD</p><h4>Monitoramento de segurança física</h4><p>Câmeras IP, sensores de movimento e logs de acesso físico postam eventos no blackboard. O agente correlacionador detecta padrões suspeitos cross-sensor (acesso noturno + câmera offline + sensor ativo simultaneamente) e aciona alarme. Use quando múltiplas fontes de dados precisam ser correlacionadas em tempo real sem acoplamento direto.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p30-mental" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · MENTAL MODEL</p><h4>Agente de trading algorítmico</h4><p>Antes de executar uma ordem grande, o agente simula o impacto no livro de ordens via modelo de mercado interno. Se a simulação indica slippage acima de 0.3%, fragmenta a ordem ou cancela. A irreversibilidade da execução justifica o custo computacional da simulação — use em domínios onde ações não podem ser desfeitas.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
+        <dialog id="dlg-p30-meta" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · META-CONTROLLER</p><h4>Chatbot corporativo multi-especialidade</h4><p>Classifica a pergunta por embedding e despacha para o agente Dev (código), RH (benefícios), Financeiro (reembolsos) ou Jurídico (contratos). Mantém histórico centralizado e escala para humano quando confiança < threshold. Use quando o volume de domínios é alto e treinar um agente generalista seria caro ou impreciso.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
       </section>
 
 
