@@ -4286,39 +4286,59 @@
           A evidência empírica é clara: multi-agente introduz custos que precisam ser justificados.
         </p>
 
-        <div class="card card-elev mt-2" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1rem 2rem; border-color:var(--coral); min-height:5rem;">
-          <h3 class="serif" style="font-size:1.8rem; color:var(--fg); margin:0;">
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+                    margin-top:0.6rem; padding:1rem 2.5rem 1.1rem;
+                    background:linear-gradient(135deg,#F9F4EC 0%,#F2EDD4 100%);
+                    border:1px solid var(--border); border-top:3px solid var(--coral);
+                    border-radius:10px;">
+          <h3 class="serif" style="font-size:1.9rem; color:var(--fg); margin:0; letter-spacing:-0.01em;">
             Comece com single-agent.
           </h3>
-          <p class="text-mute" style="font-size:1.2rem; line-height:1.4; margin:0.3rem 0 0;">
+          <p class="text-mute" style="font-size:1.2rem; line-height:1.5; margin:0.35rem 0 0; max-width:900px;">
             Migre para multi-agente apenas quando o <mark style="background:rgba(214,40,40,0.12); color:#D62828; font-weight:700; font-style:normal; padding:0.05em 0.25em; border-radius:3px;">single-agent provar-se insuficiente</mark>, e quando você puder articular
             qual <strong style="color:var(--fg); font-weight:700;">benefício específico</strong> é o <em style="font-family:var(--font-display); font-style:italic; font-weight:700; color:#D62828;">motor da decisão</em>.
           </p>
         </div>
 
-        <p class="eyebrow mt-2" style="display: block; text-align: center;">Benefícios que justificam a complexidade</p>
-        <div class="grid grid-4 mt-2" style="gap: 0.8rem;">
-          <div class="card" style="background:rgba(214,40,40,0.10); border:1px solid rgba(214,40,40,0.35); border-left:4px solid #D62828;">
-            <h3 class="serif" style="font-size: 1.2rem; color:#A01818;">Especialização</h3>
-            <p class="card-desc mt-1" style="font-size: 0.95rem;">
+        <p class="eyebrow mt-2" style="display:block; text-align:center; letter-spacing:0.18em;">Benefícios que justificam a complexidade</p>
+        <div class="grid grid-4 mt-1" style="gap:0.9rem;">
+          <div style="background:linear-gradient(160deg,rgba(214,40,40,0.10) 0%,rgba(214,40,40,0.04) 100%);
+                      border:1px solid rgba(214,40,40,0.3); border-top:3px solid #D62828;
+                      border-radius:10px; padding:1rem 1.1rem 0.9rem;">
+            <div style="font-size:1.6rem; line-height:1; margin-bottom:0.45rem;">🎯</div>
+            <h3 class="serif" style="font-size:1.25rem; color:#A01818; margin:0; font-weight:700;">Especialização</h3>
+            <hr style="border:none; border-top:1px solid rgba(214,40,40,0.25); margin:0.45rem 0;" />
+            <p style="font-size:1.05rem; color:var(--fg-mute); line-height:1.4; margin:0;">
               Subdomínios genuinamente distintos
             </p>
           </div>
-          <div class="card" style="background:rgba(247,127,0,0.10); border:1px solid rgba(247,127,0,0.35); border-left:4px solid #F77F00;">
-            <h3 class="serif" style="font-size: 1.2rem; color:#8A4000;">Paralelismo</h3>
-            <p class="card-desc mt-1" style="font-size: 0.95rem;">
+          <div style="background:linear-gradient(160deg,rgba(247,127,0,0.10) 0%,rgba(247,127,0,0.04) 100%);
+                      border:1px solid rgba(247,127,0,0.3); border-top:3px solid #F77F00;
+                      border-radius:10px; padding:1rem 1.1rem 0.9rem;">
+            <div style="font-size:1.6rem; line-height:1; margin-bottom:0.45rem;">⚡</div>
+            <h3 class="serif" style="font-size:1.25rem; color:#8A4000; margin:0; font-weight:700;">Paralelismo</h3>
+            <hr style="border:none; border-top:1px solid rgba(247,127,0,0.25); margin:0.45rem 0;" />
+            <p style="font-size:1.05rem; color:var(--fg-mute); line-height:1.4; margin:0;">
               Subtarefas independentes
             </p>
           </div>
-          <div class="card" style="background:rgba(26,128,53,0.10); border:1px solid rgba(26,128,53,0.35); border-left:4px solid #1A8035;">
-            <h3 class="serif" style="font-size: 1.2rem; color:#0D5A1F;">Robustez</h3>
-            <p class="card-desc mt-1" style="font-size: 0.95rem;">
+          <div style="background:linear-gradient(160deg,rgba(26,128,53,0.10) 0%,rgba(26,128,53,0.04) 100%);
+                      border:1px solid rgba(26,128,53,0.3); border-top:3px solid #1A8035;
+                      border-radius:10px; padding:1rem 1.1rem 0.9rem;">
+            <div style="font-size:1.6rem; line-height:1; margin-bottom:0.45rem;">🛡️</div>
+            <h3 class="serif" style="font-size:1.25rem; color:#0D5A1F; margin:0; font-weight:700;">Robustez</h3>
+            <hr style="border:none; border-top:1px solid rgba(26,128,53,0.25); margin:0.45rem 0;" />
+            <p style="font-size:1.05rem; color:var(--fg-mute); line-height:1.4; margin:0;">
               Isolamento facilita recovery
             </p>
           </div>
-          <div class="card" style="background:rgba(0,48,73,0.10); border:1px solid rgba(0,48,73,0.30); border-left:4px solid #003049;">
-            <h3 class="serif" style="font-size: 1.2rem; color:#003049;">Estrutura</h3>
-            <p class="card-desc mt-1" style="font-size: 0.95rem;">
+          <div style="background:linear-gradient(160deg,rgba(0,48,73,0.10) 0%,rgba(0,48,73,0.04) 100%);
+                      border:1px solid rgba(0,48,73,0.25); border-top:3px solid #003049;
+                      border-radius:10px; padding:1rem 1.1rem 0.9rem;">
+            <div style="font-size:1.6rem; line-height:1; margin-bottom:0.45rem;">🏗️</div>
+            <h3 class="serif" style="font-size:1.25rem; color:#003049; margin:0; font-weight:700;">Estrutura</h3>
+            <hr style="border:none; border-top:1px solid rgba(0,48,73,0.2); margin:0.45rem 0;" />
+            <p style="font-size:1.05rem; color:var(--fg-mute); line-height:1.4; margin:0;">
               Espelha equipes diferentes
             </p>
           </div>
