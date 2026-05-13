@@ -4786,10 +4786,15 @@
           </div>
         </div>
 
-        <div class="callout mt-3">
-          <em>79% das falhas multi-agent são de design, não técnicas.</em>
-          Schemas tipados e ownership claro de estado resolvem a maioria.
-        </div>
+        <figure style="margin:0.8rem 0 0; padding:0.7rem 1.6rem;
+                       border-left:3px solid var(--coral);
+                       background:rgba(214,40,40,0.06);
+                       border-radius:0 8px 8px 0; text-align:left;">
+          <blockquote style="margin:0; font-family:var(--font-display); font-style:italic;
+                             font-size:1.35rem; color:var(--fg); line-height:1.35;">
+            "79% das falhas multi-agent são de design, não técnicas. Schemas tipados e ownership claro de estado resolvem a maioria."
+          </blockquote>
+        </figure>
         <dialog id="dlg-p28-msgpass" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · MESSAGE PASSING</p><h4>Pipeline de NLP para e-commerce</h4><p>Agente de intenção envia {intent:'compra', entities:{produto:'notebook', preco_max:5000}} ao agente de busca via gRPC. Schemas JSON tipados eliminam ambiguidade e permitem validação automática no gateway — use quando agentes são desenvolvidos por times diferentes e a interface precisa ser um contrato.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
         <dialog id="dlg-p28-session" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · SHARED STATE</p><h4>Booking de viagem multi-agente</h4><p>Agentes de voo, hotel e carro lêem e escrevem no estado de sessão compartilhado {destino, datas, orçamento, reservas}. Cada agente completa sua parte sem precisar repassar o contexto inteiro — overhead zero de troca. Use quando os agentes operam no mesmo workflow e o volume de dados compartilhados é alto.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
         <dialog id="dlg-p28-memory" class="arch-dialog" onclick="if(event.target===this)this.close()"><p class="arch-dialog-eyebrow">CASO DE USO · PERSISTENT MEMORY</p><h4>Assistente de produtividade pessoal</h4><p>Preferências, projetos em andamento e decisões passadas são promovidos de contexto temporário para pgvector no fim de cada sessão. Na conversa seguinte, o agente recupera o contexto relevante via busca semântica — sem precisar repassar todo o histórico no prompt.</p><button class="arch-dialog-close" onclick="this.closest('dialog').close()">Fechar ×</button></dialog>
